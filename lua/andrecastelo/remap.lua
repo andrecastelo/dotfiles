@@ -39,3 +39,10 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/andrecastelo/packe
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- split windows using arrow keys by pressing:
+-- UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
+vim.keymap.set("n", "<C-up>", "10<c-w>+")
+vim.keymap.set("n", "<C-down>", "10<c-w>-")
+vim.keymap.set("n", "<C-S-left>", "10<c-w>>")
+vim.keymap.set("n", "<C-S-right>", "10<c-w><")
