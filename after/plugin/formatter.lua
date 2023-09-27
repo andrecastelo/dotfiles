@@ -22,6 +22,14 @@ require("formatter").setup {
                     args = { "--line-length", "100", "-q", "-" },
                     stdin = true,
                 }
+            end,
+
+            function ()
+                return {
+                    exe = "isort",
+                    args = { "--profile", "black", "--line-length", "100", "-q", "-" },
+                    stdin = true,
+                }
             end
         },
 
