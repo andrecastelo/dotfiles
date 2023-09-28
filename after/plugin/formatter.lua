@@ -7,11 +7,7 @@ require("formatter").setup {
     log_level = vim.log.levels.WARN,
     -- All formatter configurations are opt-in
     filetype = {
-        -- Formatter configurations for filetype "lua" go here
-        -- and will be executed in order
         lua = {
-            -- "formatter.filetypes.lua" defines default configurations for the
-            -- "lua" filetype
             require("formatter.filetypes.lua").stylua,
         },
 
@@ -33,10 +29,26 @@ require("formatter").setup {
             end
         },
 
+        typescript = {
+            require('formatter.filetypes.typescript').prettier
+        },
+
+        typescriptreact = {
+            require('formatter.filetypes.typescriptreact').prettier
+        },
+
+        javascript = {
+            require('formatter.filetypes.javascript').prettier
+        },
+
+        javascriptreact = {
+            require('formatter.filetypes.javascriptreact').prettier
+        },
+
         -- Use the special "*" filetype for defining formatter configurations on
         -- any filetype
         ["*"] = {
-            require("formatter.filetypes.any").remove_trailing_whitespace
+           require("formatter.filetypes.any").remove_trailing_whitespace
         }
     }
 }
