@@ -55,4 +55,5 @@ return require("packer").startup(function(use)
     })
 
     use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
+    use({ "lewis6991/gitsigns.nvim" })
 end)
