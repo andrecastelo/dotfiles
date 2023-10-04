@@ -1,6 +1,6 @@
 local util = require("formatter.util")
 
-require("formatter").setup {
+require("formatter").setup({
     -- Enable or disable logging
     logging = true,
     -- Set the log level
@@ -12,7 +12,7 @@ require("formatter").setup {
         },
 
         python = {
-            function ()
+            function()
                 return {
                     exe = "black",
                     args = { "--line-length", "100", "-q", "-" },
@@ -20,36 +20,39 @@ require("formatter").setup {
                 }
             end,
 
-            function ()
+            function()
                 return {
                     exe = "isort",
                     args = { "--profile", "black", "--line-length", "100", "-q", "-" },
                     stdin = true,
                 }
-            end
+            end,
         },
 
         typescript = {
-            require('formatter.filetypes.typescript').prettier
+            require("formatter.filetypes.typescript").prettier,
+            require("formatter.filetypes.typescript").eslint,
         },
 
         typescriptreact = {
-            require('formatter.filetypes.typescriptreact').prettier
+            require("formatter.filetypes.typescriptreact").prettier,
+            require("formatter.filetypes.typescriptreact").eslint,
         },
 
         javascript = {
-            require('formatter.filetypes.javascript').prettier
+            require("formatter.filetypes.javascript").prettier,
+            require("formatter.filetypes.javascript").eslint,
         },
 
         javascriptreact = {
-            require('formatter.filetypes.javascriptreact').prettier
+            require("formatter.filetypes.javascriptreact").prettier,
+            require("formatter.filetypes.javascriptreact").eslint,
         },
 
         -- Use the special "*" filetype for defining formatter configurations on
         -- any filetype
-        ["*"] = {
-           require("formatter.filetypes.any").remove_trailing_whitespace
-        }
-    }
-}
-
+        -- ["*"] = {
+        --     require("formatter.filetypes.any").remove_trailing_whitespace,
+        -- },
+    },
+})
