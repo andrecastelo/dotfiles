@@ -16,11 +16,9 @@ return require("packer").startup(function(use)
     use({
         "rose-pine/neovim",
         as = "rose-pine",
-        config = function()
-            vim.cmd("colorscheme rose-pine")
-        end,
     })
 
+    use("folke/tokyonight.nvim")
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
     use("nvim-treesitter/playground")
     use("theprimeagen/harpoon")
@@ -57,4 +55,22 @@ return require("packer").startup(function(use)
     use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
     use({ "lewis6991/gitsigns.nvim" })
     use({ "numToStr/Comment.nvim" })
+
+    use({
+        "glepnir/dashboard-nvim",
+        event = "VimEnter",
+        config = function()
+            require("dashboard").setup({
+                -- config
+            })
+        end,
+        requires = { "nvim-tree/nvim-web-devicons" },
+    })
+
+    use({
+        "nvim-tree/nvim-tree.lua",
+        requires = {
+            "nvim-tree/nvim-web-devicons", -- optional
+        },
+    })
 end)
