@@ -22,7 +22,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+-- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", ":FormatWrite<CR>")
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -42,10 +42,12 @@ end)
 
 -- split windows using arrow keys by pressing:
 -- UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
-vim.keymap.set("n", "<C-S-up>", "10<c-w>+")
-vim.keymap.set("n", "<C-S-down>", "10<c-w>-")
-vim.keymap.set("n", "<C-S-left>", "10<c-w>>")
-vim.keymap.set("n", "<C-S-right>", "10<c-w><")
+vim.keymap.set("n", "<C-S-down>", "<c-w>+")
+vim.keymap.set("n", "<C-S-up>", "<c-w>-")
+vim.keymap.set("n", "<C-S-right>", "10<c-w>>")
+vim.keymap.set("n", "<C-S-left>", "10<c-w><")
 
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprev<CR>")
+
+vim.keymap.set("n", "<leader>b", ":NvimTreeToggle<CR>")
