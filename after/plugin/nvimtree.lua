@@ -10,9 +10,13 @@ local function my_on_attach(bufnr)
 
     -- custom mappings
     vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+
+    -- remove some defaults
+    vim.keymap.del('n', '<Tab>', { buffer = bufnr })
 end
 
 -- pass to setup along with your other options
 require("nvim-tree").setup({
     on_attach = my_on_attach,
+    hijack_cursor = true,
 })

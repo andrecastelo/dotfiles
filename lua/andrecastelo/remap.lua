@@ -50,4 +50,4 @@ vim.keymap.set("n", "<C-S-left>", "10<c-w><")
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprev<CR>")
 
-vim.keymap.set("n", "<leader>b", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>h", ":NvimTreeToggle<CR>")
