@@ -4,11 +4,27 @@ lsp.preset('recommended')
 lsp.setup()
 
 lsp.ensure_installed({
+    -- lua
+    'lua_ls',
+    'stylua',
+
+    -- front-end
     'tsserver',
     'eslint',
+    'prettier',
     'jsonls',
+    'html',
+
+    -- python
     'pyright',
-    'lua_ls',
+    'black',
+    'flake8',
+
+    -- golang
+    'gopls',
+
+    -- misc
+    'marksman',
 })
 
 lsp.nvim_workspace()
