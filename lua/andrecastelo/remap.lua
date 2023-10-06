@@ -5,7 +5,6 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -30,11 +29,10 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>:bd<CR>")
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/andrecastelo/packer.lua<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/andrecastelo/packer.lua<CR>")
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
@@ -47,7 +45,7 @@ vim.keymap.set("n", "<C-S-up>", "<c-w>-")
 vim.keymap.set("n", "<C-S-right>", "10<c-w>>")
 vim.keymap.set("n", "<C-S-left>", "10<c-w><")
 
-vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>")
-vim.keymap.set("n", "<S-Tab>", "<cmd>bprev<CR>")
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
 
-vim.keymap.set("n", "<leader>h", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>h", ":NvimTreeFindFileToggle<CR>")
