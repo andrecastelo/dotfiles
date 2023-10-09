@@ -13,6 +13,7 @@ local function my_on_attach(bufnr)
 
     -- remove some defaults
     vim.keymap.del('n', '<Tab>', { buffer = bufnr })
+    vim.keymap.del('n', '<C-e>', { buffer = bufnr })
 end
 
 -- pass to setup along with your other options
