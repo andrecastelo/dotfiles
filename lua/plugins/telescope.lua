@@ -44,7 +44,7 @@ return {
             builtin.grep_string({ default_text = text })
         end)
 
-        vim.keymap.set("n", "<leader>pr", builtin.live_grep)
+        vim.keymap.set("n", "<leader>/", builtin.live_grep)
         vim.keymap.set("v", "<leader>pr", function()
             local text = vim.getVisualSelection()
             builtin.live_grep({ default_text = text })
