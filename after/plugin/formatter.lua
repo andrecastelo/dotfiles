@@ -49,6 +49,10 @@ require("formatter").setup({
             require("formatter.filetypes.javascriptreact").eslint,
         },
 
+        markdown = {
+            require("formatter.filetypes.markdown").prettier,
+        }
+
         -- Use the special "*" filetype for defining formatter configurations on
         -- any filetype
         -- ["*"] = {
