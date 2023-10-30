@@ -26,7 +26,7 @@ local autoCommands = {
         { "BufReadPost,FileReadPost", "*", "normal zR" },
     },
     autoformat = {
-        { "BufWritePre", "*", "lua vim.lsp.buf.format()" },
+        { "BufWritePre", "*", ":FormatWrite<CR>" },
     },
 }
 
