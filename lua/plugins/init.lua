@@ -22,7 +22,7 @@ return {
     "tpope/vim-fugitive",
     {
         "akinsho/bufferline.nvim",
-        versions = "*",
+        version = "*",
         dependencies = "nvim-tree/nvim-web-devicons"
     },
     { "lewis6991/gitsigns.nvim" },
