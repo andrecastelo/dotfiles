@@ -9,7 +9,7 @@ return {
 
         vim.keymap.set("n", "<C-n>", function() ui.nav_file(1) end)
         vim.keymap.set("n", "<C-m>", function() ui.nav_file(2) end)
-        vim.keymap.set("n", "<leader>k", function() ui.nav_next() end)
-        vim.keymap.set("n", "<leader>j", function() ui.nav_prev() end)
+        vim.keymap.set("n", "<leader>.", function() ui.nav_next() end)
+        vim.keymap.set("n", "<leader>,", function() ui.nav_prev() end)
     end
 }

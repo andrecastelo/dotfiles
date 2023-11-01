@@ -3,7 +3,24 @@ return {
         "rose-pine/neovim",
         as = "rose-pine",
     },
-    "folke/tokyonight.nvim",
+    {
+        "folke/tokyonight.nvim",
+        config = function()
+            require('tokyonight').setup({
+                style = "night",
+                styles = {
+                    comments = { bold = false },
+                    keywords = { bold = false },
+                    functions = { bold = false },
+                    variables = { bold = false },
+                },
+                on_highlights = function(highlights, colors)
+                    highlights.Title.bold = false
+                end
+            })
+            vim.cmd.colorscheme("tokyonight")
+        end
+    },
     "nvim-treesitter/playground",
     "nvim-treesitter/nvim-treesitter-context",
     {
