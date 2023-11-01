@@ -36,16 +36,16 @@ return {
             })
         end)
         vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-        vim.keymap.set("n", "<leader>ps", function()
+        vim.keymap.set("n", "<C-S-f>", function()
             builtin.grep_string({ search = vim.fn.input("Grep > ") })
         end)
-        vim.keymap.set("v", "<leader>ps", function()
+        vim.keymap.set("v", "<leader>gs", function()
             local text = vim.getVisualSelection()
             builtin.grep_string({ default_text = text })
         end)
 
         vim.keymap.set("n", "<leader>/", builtin.live_grep)
-        vim.keymap.set("v", "<leader>pr", function()
+        vim.keymap.set("v", "<leader>gr", function()
             local text = vim.getVisualSelection()
             builtin.live_grep({ default_text = text })
         end)
@@ -54,8 +54,8 @@ return {
             builtin.buffers({ show_all_buffers = true })
         end)
 
-        vim.keymap.set("n", "<leader>pc", builtin.colorscheme)
-        vim.keymap.set("n", "<leader>ph", builtin.help_tags, {})
+        vim.keymap.set("n", "<leader>[c", builtin.colorscheme)
+        vim.keymap.set("n", "<leader>[h", builtin.help_tags, {})
 
         local telescope = require("telescope")
 
