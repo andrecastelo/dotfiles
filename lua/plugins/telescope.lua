@@ -60,6 +60,18 @@ return {
         local telescope = require("telescope")
 
         telescope.setup({
+            defaults = {
+                mappings = {
+                    i = {
+                        ["<C-s>"] = require("andrecastelo.harpoon").mark_file,
+                        ["<C-h>"] = require("telescope.actions").cycle_history_prev,
+                        ["<C-l>"] = require("telescope.actions").cycle_history_next,
+                    },
+                    n = {
+                        ["<C-s>"] = require("andrecastelo.harpoon").mark_file,
+                    },
+                },
+            },
             pickers = {
                 find_files = {
                     hidden = true,
