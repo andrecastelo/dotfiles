@@ -7,6 +7,6 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = "",
+	pattern = "*",
 	command = "FormatWrite",
 })
