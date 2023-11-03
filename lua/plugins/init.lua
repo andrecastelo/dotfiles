@@ -6,7 +6,7 @@ return {
     {
         "folke/tokyonight.nvim",
         config = function()
-            require('tokyonight').setup({
+            require("tokyonight").setup({
                 style = "night",
                 styles = {
                     comments = { bold = false },
@@ -16,10 +16,10 @@ return {
                 },
                 on_highlights = function(highlights, colors)
                     highlights.Title.bold = false
-                end
+                end,
             })
             vim.cmd.colorscheme("tokyonight")
-        end
+        end,
     },
     "nvim-treesitter/playground",
     "nvim-treesitter/nvim-treesitter-context",
@@ -28,19 +28,19 @@ return {
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 500
-            require("which-key").setup {
+            require("which-key").setup({
                 -- your configuration comes here
                 -- or leave it empty to use the default settings
                 -- refer to the configuration section below
-            }
-        end
+            })
+        end,
     },
     "mbbill/undotree",
     "tpope/vim-fugitive",
     {
         "akinsho/bufferline.nvim",
         version = "*",
-        dependencies = "nvim-tree/nvim-web-devicons"
+        dependencies = "nvim-tree/nvim-web-devicons",
     },
     { "lewis6991/gitsigns.nvim" },
     { "numToStr/Comment.nvim" },
@@ -48,5 +48,10 @@ return {
         "glepnir/dashboard-nvim",
         event = "VimEnter",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
     },
 }
