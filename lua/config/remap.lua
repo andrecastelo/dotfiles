@@ -30,7 +30,8 @@ vim.keymap.set("n", "<C-l>", ":bnext<CR>")
 vim.keymap.set("n", "<C-h>", ":bprev<CR>")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>:bd<CR>")
+-- maybe I don't need this
+-- vim.keymap.set("n", "<leader>x", "<cmd>:bd<CR>")
 
 -- change window sizes using arrow keys by pressing:
 -- UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
