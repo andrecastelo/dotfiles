@@ -84,4 +84,8 @@ return {
         event = "InsertEnter",
         opts = {},
     },
+    {
+        "christoomey/vim-tmux-navigator",
+        event = "VimEnter",
+    },
 }

@@ -28,12 +28,10 @@ return {
         lsp.ensure_installed({
             -- lua
             "lua_ls",
-            "stylua",
 
             -- front-end
             "tsserver",
             "eslint",
-            "prettier",
             "jsonls",
             "html",
 
