@@ -44,5 +44,5 @@ return {
             ---Function to call after (un)comment
             post_hook = nil,
         })
-    end
+    end,
 }

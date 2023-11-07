@@ -99,9 +99,64 @@ return {
             vim.keymap.set("n", "<leader>vrn", function()
                 vim.lsp.buf.rename()
             end, opts)
+
             vim.keymap.set("i", "<C-h>", function()
                 vim.lsp.buf.signature_help()
             end, opts)
+
+            -- wk.register({
+            --     ["gd"] = {
+            --         function()
+            --             vim.lsp.buf.definition()
+            --         end,
+            --         "Go to definition",
+            --     },
+            --     ["K"] = {
+            --         function()
+            --             vim.lsp.buf.hover()
+            --         end,
+            --     },
+            --     ["<leader>vws"] = {
+            --         function()
+            --             vim.lsp.buf.workspace_symbol()
+            --         end,
+            --     },
+            --     ["<leader>vd"] = {
+            --         function()
+            --             vim.diagnostic.open_float()
+            --         end,
+            --     },
+            --     ["[d"] = {
+            --         function()
+            --             vim.diagnostic.goto_next()
+            --         end,
+            --         "Go to the next diagnostic entry",
+            --     },
+            --     ["]d"] = {
+            --         function()
+            --             vim.diagnostic.goto_prev()
+            --         end,
+            --         "Go to the previous diagnostic entry",
+            --     },
+            --     ["<leader>vca"] = {
+            --         function()
+            --             vim.lsp.buf.code_action()
+            --         end,
+            --         "Open code actions",
+            --     },
+            --     ["<leader>vrr"] = {
+            --         function()
+            --             vim.lsp.buf.references()
+            --         end,
+            --         "View references"
+            --     },
+            --     ["<leader>vrn"] = {
+            --         function()
+            --             vim.lsp.buf.rename()
+            --         end,
+            --         "Rename through treesitter"
+            --     },
+            -- }, { remap = false, noremap = false })
         end)
 
         lsp.setup()
