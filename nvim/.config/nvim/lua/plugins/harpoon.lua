@@ -9,13 +9,13 @@ return {
             ["<leader>a"] = { mark.add_file, "Add file to harpoon" },
             ["<C-e>"] = { ui.toggle_quick_menu, "Open harpoon menu" },
 
-            ["<C-n>"] = {
+            ["<C-b>"] = {
                 function()
                     ui.nav_file(1)
                 end,
                 "Go to harpon entry 1",
             },
-            ["<C-m>"] = {
+            ["<C-n>"] = {
                 function()
                     ui.nav_file(2)
                 end,
