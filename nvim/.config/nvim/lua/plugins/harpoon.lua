@@ -21,18 +21,6 @@ return {
                 end,
                 "Go to harpon entry 2",
             },
-            ["<C-,>"] = {
-                function()
-                    ui.nav_file(3)
-                end,
-                "Go to harpon entry 3",
-            },
-            ["<C-.>"] = {
-                function()
-                    ui.nav_file(4)
-                end,
-                "Go to harpon entry 4",
-            },
             ["<leader>."] = {
                 function()
                     ui.nav_next()
