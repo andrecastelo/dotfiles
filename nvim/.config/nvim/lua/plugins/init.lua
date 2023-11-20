@@ -88,4 +88,5 @@ return {
         "christoomey/vim-tmux-navigator",
         event = "VimEnter",
     },
+    { "tpope/vim-rhubarb" },
 }
