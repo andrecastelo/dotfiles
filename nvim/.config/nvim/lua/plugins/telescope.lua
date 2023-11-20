@@ -66,6 +66,14 @@ return {
 
         telescope.setup({
             defaults = {
+                layout_strategy = "vertical",
+                layout_config = {
+                    width = 0.95,
+                    height = 0.95,
+                    preview_cutoff = 10,
+                    prompt_position = "top",
+                    mirror = true,
+                },
                 mappings = {
                     i = {
                         ["<C-s>"] = require("andrecastelo.harpoon").mark_file,
