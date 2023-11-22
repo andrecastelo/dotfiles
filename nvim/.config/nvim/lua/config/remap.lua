@@ -29,16 +29,22 @@ wk.register({
     ["<S-right>"] = { "10<c-w><", "increase current pane width" },
 }, { mode = "n" })
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+wk.register({
+    ["<"] = { "<gv", "Continuous visual indenting", mode = "v" },
+    [">"] = { ">gv", "Continuous visual indenting", mode = "v" },
 
--- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Pastes without removing the data from the register" })
+    -- greatest remap ever
+    ["p"] = { [["_dP]], "Pastes without removing the data from the register", mode = "x" },
 
--- next greatest remap ever : asbjornHaland
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+    -- next greatest remap ever : asbjornHaland
+    ["<leader>y"] = { [["+y]], "Yanks to the global register", mode = { "n", "v" } },
+    ["<leader>d"] = { [["_d]], "Deletes without copying the deleted stuff", mode = { "n", "v" } },
 
+    ["J"] = { ":m '>+1<CR>gv=gv", "Move line down", mode = "v" },
+    ["K"] = { ":m '<-2<CR>gv=gv", "Move line up", mode = "v" },
+})
+
+-- TODO: use tmux-sesssionizer lmao
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- maybe I don't need this
