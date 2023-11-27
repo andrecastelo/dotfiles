@@ -40,22 +40,43 @@ return {
         wk.register({
             ["<C-p>"] = { builtin.git_files, "Find files in the git repo" },
             ["<leader>/"] = { builtin.live_grep, "Live grep against all files" },
-            ["<leader>[c"] = { builtin.colorscheme, "Open list of colorschemes" },
-            ["<leader>[h"] = { builtin.help_tags, "View help tags" },
+            ["<leader>]c"] = { builtin.colorscheme, "Open list of colorschemes" },
+            ["<leader>]h"] = { builtin.help_tags, "View help tags" },
+            ["<leader>]/"] = {
+                function()
+                    builtin.grep_string({ search = vim.fn.input("Grep > ") })
+                end,
+                "Grep string, but telescope for file names",
+            },
+            ["<leader>b"] = {
+                function()
+                    builtin.buffers({ show_all_buffers = true })
+                end,
+                "Search buffers",
+            },
         })
 
-        vim.keymap.set("n", "<leader>b", function()
-            builtin.buffers({ show_all_buffers = true })
-        end)
+        wk.register({
+            ["<leader>]/"] = {
+                function()
+                    local text = vim.getVisualSelection()
+                    require("telescope.builtin").grep_string({ default_text = text })
+                end,
+                "Grep selected text",
+            },
+            ["<leader>/"] = {
+                function()
+                    local text = vim.getVisualSelection()
+                    require("telescope.builtin").live_grep({ default_text = text })
+                end,
+                "Live grep selected text against all files",
+            },
+        }, { mode = "v" })
 
-        vim.keymap.set("n", "<C-S-f>", function()
-            builtin.grep_string({ search = vim.fn.input("Grep > ") })
-        end)
-
-        vim.keymap.set("v", "<leader>gs", function()
-            local text = vim.getVisualSelection()
-            require("telescope.builtin").grep_string({ default_text = text })
-        end)
+        -- vim.keymap.set("v", "<leader>gs", function()
+        --     local text = vim.getVisualSelection()
+        --     require("telescope.builtin").grep_string({ default_text = text })
+        -- end)
 
         vim.keymap.set("v", "<leader>gr", function()
             local text = vim.getVisualSelection()
