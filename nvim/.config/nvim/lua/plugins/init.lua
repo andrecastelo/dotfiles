@@ -79,11 +79,11 @@ return {
             end)
         end,
     },
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        opts = {},
-    },
+    -- {
+    --     "windwp/nvim-autopairs",
+    --     event = "InsertEnter",
+    --     opts = {},
+    -- },
     {
         "christoomey/vim-tmux-navigator",
         event = "VimEnter",
