@@ -15,6 +15,10 @@ return {
                     require("formatter.filetypes.lua").stylua,
                 },
 
+                go = {
+                    require("formatter.filetypes.go").gofmt,
+                },
+
                 python = {
                     function()
                         return {
