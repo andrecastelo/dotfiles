@@ -39,6 +39,7 @@ return {
 
         wk.register({
             ["<C-p>"] = { builtin.git_files, "Find files in the git repo" },
+            ["<M-p>"] = { builtin.git_files, "Find files in the git repo" },
             ["<leader>/"] = { builtin.live_grep, "Live grep against all files" },
             ["<leader>]c"] = { builtin.colorscheme, "Open list of colorschemes" },
             ["<leader>]h"] = { builtin.help_tags, "View help tags" },

@@ -7,11 +7,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = "*.lua",
+    pattern = "*",
     command = "lua vim.lsp.buf.format()",
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     pattern = "*",
-    command = "FormatWrite",
+    command = "lua vim.lsp.buf.format()",
 })

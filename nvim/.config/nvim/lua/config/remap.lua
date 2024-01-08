@@ -14,7 +14,7 @@ wk.register({
     ["N"] = { "Nzzzv" },
     ["Q"] = { "<nop>", "no op" },
     ["<C-f>"] = { "<cmd>!tmux neww tmux-sessionizer<CR>", "Open projects in a new session" },
-    ["<leader>f"] = { ":FormatWrite<CR>", "format the file" },
+    ["<leader>f"] = { ":lua vim.lsp.buf.format()<CR>", "format the file" },
     ["<leader>s"] = {
         [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
         "search and replace the word under the cursor",

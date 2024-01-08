@@ -1,6 +1,6 @@
 return {
     "mhartington/formatter.nvim",
-    cond = vim.g.vscode,
+    enabled = false,
     config = function()
         local util = require("formatter.util")
 

@@ -22,7 +22,15 @@ return {
         end,
     },
     "nvim-treesitter/playground",
-    "nvim-treesitter/nvim-treesitter-context",
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        enabled = false,
+        config = function()
+            require("treesitter-context").setup({
+                multiline_threshold = 1,
+            })
+        end
+    },
     {
         "folke/which-key.nvim",
         config = function()
