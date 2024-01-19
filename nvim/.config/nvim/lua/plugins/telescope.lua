@@ -51,10 +51,14 @@ return {
             },
             ["<leader>b"] = {
                 function()
-                    builtin.buffers({ show_all_buffers = true })
+                    builtin.buffers({
+                        show_all_buffers = false,
+                        sort_mru = true,
+                    })
                 end,
                 "Search buffers",
             },
+            ["<leader>m"] = { "<cmd>Telescope marks<CR>", "Telescope marks" },
         })
 
         wk.register({

@@ -34,6 +34,7 @@ return {
             "eslint",
             "jsonls",
             "html",
+            "emmet_ls",
 
             -- python
             "pyright",
@@ -187,6 +188,15 @@ return {
                     },
                 },
             },
+        })
+
+
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+        lspconfig.emmet_ls.setup({
+            filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte",
+                "pug", "typescriptreact", "vue" },
+            capabilities = capabilities,
         })
     end,
 }

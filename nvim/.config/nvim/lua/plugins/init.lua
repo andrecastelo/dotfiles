@@ -97,4 +97,5 @@ return {
         event = "VimEnter",
     },
     { "tpope/vim-rhubarb" },
+    { "IndianBoy42/tree-sitter-just" },
 }
