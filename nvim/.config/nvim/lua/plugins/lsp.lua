@@ -38,6 +38,7 @@ return {
 
             -- python
             "pyright",
+            "ruff_lsp",
 
             -- golang
             "gopls",
