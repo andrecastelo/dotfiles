@@ -1,0 +1,7 @@
+[settings]
+experimental = true
+python_venv_auto_create = true
+
+[tools]
+node = "20"
+python = "3.12.1"
