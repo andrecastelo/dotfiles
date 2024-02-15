@@ -89,6 +89,17 @@ return {
     },
     {
         "nvim-tree/nvim-web-devicons",
+        -- config = function()
+        --     require('nvim-web-devicons').setup({
+        --         override = {
+        --             toml = {
+        --                 icon = "",
+        --                 color = "#6d8086",
+        --                 cterm_color = "66",
+        --             }
+        --         }
+        --     })
+        -- end
     },
     { "rose-pine/neovim",  as = "rose-pine" },
     { "tpope/vim-fugitive" },
