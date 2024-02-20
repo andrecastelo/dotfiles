@@ -1,5 +1,11 @@
 # Requirements
 
+**tl;dr**:
+
+```
+brew install Ripgrep fzf stow fd
+```
+
 - [Ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 
   - **MacOS**:
@@ -27,7 +33,7 @@
 
 - [Stow](https://www.gnu.org/software/stow/)
 
-  Stow is used to create the symlinks to the appropriate folders.
+  `stow` is used to create the symlinks to the appropriate folders.
 
   - **MacOS**:
 
@@ -35,10 +41,19 @@
   brew install stow
   ```
 
+- [fd](https://github.com/sharkdp/fd)
+
+  `fd` is a faster alternative to `find`.
+
+  - ** MacOS**:
+
+  ```
+  brew install fd
+  ```
+
 ## Usage
 
 Just run `install.sh`, which will unstow and re-stow all files, or run `stow`:
 
-- `stow -D <folder>` - unlinks folder 
+- `stow -D <folder>` - unlinks folder
 - `stow <folder>` - links the folder
-
