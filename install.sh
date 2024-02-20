@@ -15,3 +15,6 @@ stow zshrc
 
 stow -D bin
 stow bin
+
+stow -D zed
+stow zed

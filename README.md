@@ -37,4 +37,8 @@
 
 ## Usage
 
-Just run `install.sh`, which will unstow and re-stow all files.
+Just run `install.sh`, which will unstow and re-stow all files, or run `stow`:
+
+- `stow -D <folder>` - unlinks folder 
+- `stow <folder>` - links the folder
+
