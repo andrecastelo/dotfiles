@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -99,22 +100,43 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export GPG_TTY=$(tty)
+
+
+# pnpm
+export PNPM_HOME="/Users/andrecastelo/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# golang setup
+export GOROOT="/usr/local/go"
+export GOPATH="/Users/andrecastelo/Projects"
+export GOBIN="/Users/andrecastelo/Projects/gobin"
+export PATH="$PATH:$GOROOT/bin:$GOBIN"
+
+# editor setup
+export EDITOR="/usr/local/bin/nvim"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# mise.jdx.dev
+eval "$(/Users/andrecastelo/.local/bin/mise activate zsh)"
+
+# for https in localhost
+export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 
 # Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -f /usr/local/bin/brew ] && eval "$(/usr/local/bin/brew shellenv)"
 
 export PATH=$HOME/.local/bin:$PATH
 
-source "/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
-source "/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc"
+[ -f /opt/homebrew/share/google-cloud-sdk/path.zsh.inc ] && source "/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
+[ -f /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc ] && source "/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
