@@ -10,117 +10,108 @@ return {
         local code_actions = null_ls.builtins.code_actions
 
         null_ls.setup({
-            -- python
-            diagnostics.ruff.with({
-                diagnostics_format = diagnostics_format,
-                prefer_local = ".venv/bin",
-                cwd = nhelpers.cache.by_bufnr(function(params)
-                    return require("null-ls.utils").root_pattern(
-                        "pyproject.toml",
-                        "setup.py",
-                        "setup.cfg",
-                        "requirements.txt",
-                        "Pipfile",
-                        "pyrightconfig.json"
-                    )(params.bufname)
-                end),
-            }),
-            formatting.ruff.with({
-                prefer_local = ".venv/bin",
-                cwd = nhelpers.cache.by_bufnr(function(params)
-                    return require("null-ls.utils").root_pattern(
-                        "pyproject.toml",
-                        "setup.py",
-                        "setup.cfg",
-                        "requirements.txt",
-                        "Pipfile",
-                        "pyrightconfig.json"
-                    )(params.bufname)
-                end),
-                extra_args = { "--unfixable", "T20,ERA001,F841" },
-            }),
-            formatting.ruff_format.with({
-                prefer_local = ".venv/bin",
-                cwd = nhelpers.cache.by_bufnr(function(params)
-                    return require("null-ls.utils").root_pattern(
-                        "pyproject.toml",
-                        "setup.py",
-                        "setup.cfg",
-                        "requirements.txt",
-                        "Pipfile",
-                        "pyrightconfig.json"
-                    )(params.bufname)
-                end),
-            }),
+            sources = {
+                -- python
+                diagnostics.ruff.with({
+                    diagnostics_format = diagnostics_format,
+                    prefer_local = ".venv/bin",
+                    cwd = nhelpers.cache.by_bufnr(function(params)
+                        return require("null-ls.utils").root_pattern(
+                            "pyproject.toml",
+                            "setup.py",
+                            "setup.cfg",
+                            "requirements.txt",
+                            "Pipfile",
+                            "pyrightconfig.json"
+                        )(params.bufname)
+                    end),
+                }),
+                formatting.ruff.with({
+                    prefer_local = ".venv/bin",
+                    cwd = nhelpers.cache.by_bufnr(function(params)
+                        return require("null-ls.utils").root_pattern(
+                            "pyproject.toml",
+                            "setup.py",
+                            "setup.cfg",
+                            "requirements.txt",
+                            "Pipfile",
+                            "pyrightconfig.json"
+                        )(params.bufname)
+                    end),
+                    extra_args = { "--unfixable", "T20,ERA001,F841" },
+                }),
+                formatting.ruff_format.with({
+                    prefer_local = ".venv/bin",
+                    cwd = nhelpers.cache.by_bufnr(function(params)
+                        return require("null-ls.utils").root_pattern(
+                            "pyproject.toml",
+                            "setup.py",
+                            "setup.cfg",
+                            "requirements.txt",
+                            "Pipfile",
+                            "pyrightconfig.json"
+                        )(params.bufname)
+                    end),
+                }),
 
-            -- javascript/typescript
-            formatting.prettier.with({
-                prefer_local = "node_modules/.bin",
-            }),
-            diagnostics.eslint,
-            code_actions.eslint,
+                -- javascript/typescript
+                formatting.prettier.with({
+                    prefer_local = "node_modules/.bin",
+                }),
+                diagnostics.eslint,
+                code_actions.eslint,
 
-            -- golang
-            formatting.gofmt,
+                -- golang
+                formatting.gofmt,
 
-            -- just file
-            formatting.just,
+                -- just file
+                formatting.just,
 
-            -- sh/bash
-            code_actions.shellcheck,
-            diagnostics.shellcheck.with({
-                diagnostics_format = diagnostics_format,
-            }),
-            formatting.shfmt.with({
-                extra_args = function(params)
-                    return { "-i", tostring(vim.opt_local.shiftwidth:get()) }
-                end,
-            }),
+                -- lua
+                formatting.stylua.with({
+                    condition = function(utils)
+                        return utils.root_has_file({ "stylua.toml", ".stylua.toml" })
+                    end,
+                }),
 
-            -- lua
-            formatting.stylua.with({
-                condition = function(utils)
-                    return utils.root_has_file({ "stylua.toml", ".stylua.toml" })
-                end,
-            }),
+                -- refactoring
+                code_actions.refactoring,
 
-            -- refactoring
-            code_actions.refactoring,
+                -- json
+                formatting.fixjson,
 
-            -- json
-            formatting.fixjson,
+                -- yaml
+                diagnostics.yamllint.with({
+                    diagnostics_format = diagnostics_format,
+                    extra_args = function(params)
+                        return {
+                            "-d",
+                            string.format(
+                                "{extends: default, rules: {line-length: {max: %d}}}",
+                                vim.opt_local.textwidth:get() + 1
+                            ),
+                        }
+                    end,
+                }),
+                formatting.yamlfix.with({
+                    env = function(params)
+                        return {
+                            -- YAMLFIX_LINE_LENGTH = tostring(vim.opt_local.textwidth:get() + 1),
+                            YAMLFIX_SECTION_WHITELINES = "1",
+                            YAMLFIX_quote_representation = '"',
+                            YAMLFIX_SEQUENCE_STYLE = "block_style",
+                        }
+                    end,
+                }),
 
-            -- yaml
-            diagnostics.yamllint.with({
-                diagnostics_format = diagnostics_format,
-                extra_args = function(params)
-                    return {
-                        "-d",
-                        string.format(
-                            "{extends: default, rules: {line-length: {max: %d}}}",
-                            vim.opt_local.textwidth:get() + 1
-                        ),
-                    }
-                end,
-            }),
-            formatting.yamlfix.with({
-                env = function(params)
-                    return {
-                        -- YAMLFIX_LINE_LENGTH = tostring(vim.opt_local.textwidth:get() + 1),
-                        YAMLFIX_SECTION_WHITELINES = "1",
-                        YAMLFIX_quote_representation = '"',
-                        YAMLFIX_SEQUENCE_STYLE = "block_style",
-                    }
-                end,
-            }),
+                -- markdown
+                diagnostics.markdownlint.with({
+                    diagnostics_format = diagnostics_format,
+                }),
 
-            -- markdown
-            diagnostics.markdownlint.with({
-                diagnostics_format = diagnostics_format,
-            }),
-
-            -- toml
-            formatting.taplo,
+                -- toml
+                formatting.taplo,
+            }
         })
     end,
 }
