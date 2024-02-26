@@ -125,6 +125,13 @@ export EDITOR="/usr/local/bin/nvim"
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if command -v fd &> /dev/null; then
+    export FZF_DEFAULT_COMMAND="fd -I . $HOME"
+    export FZF_CTRL_T_COMMAND="fd -I . $HOME"
+    export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+fi
+
+
 # mise.jdx.dev
 eval "$(/Users/andrecastelo/.local/bin/mise activate zsh)"
 
@@ -139,4 +146,5 @@ export PATH=$HOME/.local/bin:$PATH
 
 [ -f /opt/homebrew/share/google-cloud-sdk/path.zsh.inc ] && source "/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
 [ -f /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc ] && source "/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc"
+
 
