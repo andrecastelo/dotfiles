@@ -15,7 +15,7 @@ wk.register({
     ["Q"] = { "<nop>", "no op" },
     ["<C-f>"] = { "<cmd>!tmux neww tmux-sessionizer<CR>", "Open projects in a new session" },
     ["<leader>f"] = { function()
-        vim.lsp.buff.format({ async = true })
+        vim.lsp.buf.format({ async = true })
     end, "format the file" },
     ["<leader>s"] = {
         [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
