@@ -1,10 +1,5 @@
 return {
     {
-        "akinsho/bufferline.nvim",
-        version = "*",
-        dependencies = "nvim-tree/nvim-web-devicons",
-    },
-    {
         "christoomey/vim-tmux-navigator",
         event = "VimEnter",
     },
