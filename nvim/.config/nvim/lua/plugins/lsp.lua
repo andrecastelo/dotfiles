@@ -30,7 +30,6 @@ return {
             "lua_ls",
 
             -- front-end
-            "tsserver",
             "eslint",
             "jsonls",
             "html",
