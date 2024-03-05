@@ -49,26 +49,6 @@ M.toggle_diagnostics = function()
     diagnostics_enabled = not diagnostics_enabled
 end
 
-M.lsp_format = function(opts)
-    opts = opts or {}
-    if format_enabled or opts.force then
-        vim.lsp.buf.format({
-            filter = function(client)
-                local excluded = {
-                    html = true,
-                    jsonls = true,
-                    pyright = true,
-                    sumneko_lua = true,
-                    lua_ls = true,
-                    taplo = true,
-                    tsserver = true,
-                }
-                return not excluded[client.name]
-            end,
-        })
-    end
-end
-
 M.lsp_handler = function(parser, title, action, opts)
     local function handle_result(err, result, ctx, ...)
         local pickers = require("telescope.pickers")
