@@ -1,8 +1,5 @@
 return {
-    {
-        "christoomey/vim-tmux-navigator",
-        event = "VimEnter",
-    },
+    { "christoomey/vim-tmux-navigator", event = "VimEnter" },
     {
         "folke/tokyonight.nvim",
         config = function()
@@ -56,11 +53,6 @@ return {
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 500
-            require("which-key").setup({
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            })
         end,
     },
     {
@@ -82,26 +74,8 @@ return {
             })
         end
     },
-    {
-        "nvim-tree/nvim-web-devicons",
-        -- config = function()
-        --     require('nvim-web-devicons').setup({
-        --         override = {
-        --             toml = {
-        --                 icon = "",
-        --                 color = "#6d8086",
-        --                 cterm_color = "66",
-        --             }
-        --         }
-        --     })
-        -- end
-    },
-    { "rose-pine/neovim",  as = "rose-pine" },
+    { "nvim-tree/nvim-web-devicons" },
+    { "rose-pine/neovim",           as = "rose-pine" },
     { "tpope/vim-fugitive" },
     { "tpope/vim-rhubarb" },
-    -- {
-    --     "windwp/nvim-autopairs",
-    --     event = "InsertEnter",
-    --     opts = {},
-    -- },
 }
