@@ -1,10 +1,15 @@
-[env]
-GIT_EDITOR = "nvim"
-
 [settings]
 experimental = true
 python_venv_auto_create = true
 
+[env]
+GIT_EDITOR = "nvim"
+PIP_REQUIRE_VIRTUALENV = 'true'
+
 [tools]
+fd = 'latest'
+fzf = 'latest'
+ripgrep = 'latest'
 node = "20"
-python = "3.12.1"
+python = ['latest', 'sub-0.1:latest', 'sub-0.2:latest', 'sub-0.3:latest']
+go = ["1.22", "1.21"]
