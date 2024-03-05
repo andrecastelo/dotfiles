@@ -114,7 +114,7 @@ case ":$PATH:" in
 esac
 
 # golang setup
-export GOROOT="/usr/local/go"
+# export GOROOT="/usr/local/go"
 export GOPATH="/Users/andrecastelo/Projects"
 export GOBIN="/Users/andrecastelo/Projects/gobin"
 export PATH="$PATH:$GOROOT/bin:$GOBIN"
