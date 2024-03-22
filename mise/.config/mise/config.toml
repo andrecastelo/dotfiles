@@ -1,6 +1,6 @@
 [settings]
 experimental = true
-python_venv_auto_create = true
+python_venv_auto_create = false
 
 [env]
 GIT_EDITOR = "nvim"
