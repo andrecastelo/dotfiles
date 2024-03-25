@@ -133,10 +133,10 @@ fi
 
 
 # mise.jdx.dev
-eval "$(/Users/andrecastelo/.local/bin/mise activate zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
 
 # for https in localhost
-export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
+# export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 
 # Set PATH, MANPATH, etc., for Homebrew.
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -146,5 +146,4 @@ export PATH=$HOME/.local/bin:$PATH
 
 [ -f /opt/homebrew/share/google-cloud-sdk/path.zsh.inc ] && source "/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
 [ -f /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc ] && source "/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc"
-
 
