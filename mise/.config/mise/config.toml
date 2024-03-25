@@ -5,6 +5,7 @@ python_venv_auto_create = false
 [env]
 GIT_EDITOR = "nvim"
 PIP_REQUIRE_VIRTUALENV = 'true'
+RIPGREP_CONFIG_PATH = '{{env.HOME}}/.config/rg/ripgreprc'
 
 [tools]
 fd = 'latest'
