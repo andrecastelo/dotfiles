@@ -100,9 +100,10 @@ return {
                 }),
 
                 -- markdown
-                diagnostics.markdownlint.with({
-                    diagnostics_format = diagnostics_format,
-                }),
+                -- diagnostics.markdownlint.with({
+                --     diagnostics_format = diagnostics_format,
+                -- }),
+                formatting.markdownlint,
             }
         })
     end,
