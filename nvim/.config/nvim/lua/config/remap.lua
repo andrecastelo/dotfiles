@@ -47,8 +47,5 @@ wk.register({
     ["K"] = { ":m '<-2<CR>gv=gv", "Move line up", mode = "v" },
 })
 
--- TODO: use tmux-sesssionizer lmao
--- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-
 -- maybe I don't need this
 -- vim.keymap.set("n", "<leader>x", "<cmd>:bd<CR>")
