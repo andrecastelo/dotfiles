@@ -16,6 +16,7 @@
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
+      "shift-k": "editor::Hover"
       // put key-bindings here if you want them to work only in normal mode
     }
   },
