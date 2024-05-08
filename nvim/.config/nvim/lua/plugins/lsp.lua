@@ -60,6 +60,7 @@ return {
             "jsonls",
             "html",
             "emmet_ls",
+            "tsserver",
 
             -- python
             "pyright",
