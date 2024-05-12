@@ -1,5 +1,6 @@
 return {
     "numToStr/Comment.nvim",
+    enabled = not vim.g.vscode,
     config = function()
         require("Comment").setup({
             ---Add a space b/w comment and the line

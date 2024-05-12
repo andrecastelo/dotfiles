@@ -1,5 +1,6 @@
 return {
     "folke/zen-mode.nvim",
+    enabled = not vim.g.vscode,
     config = function()
         local wk = require("which-key")
         local zenMode = require('zen-mode')

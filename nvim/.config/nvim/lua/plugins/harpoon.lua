@@ -1,5 +1,6 @@
 return {
     "theprimeagen/harpoon",
+    enabled = not vim.g.vscode,
     config = function()
         local wk = require("which-key")
         local mark = require("harpoon.mark")

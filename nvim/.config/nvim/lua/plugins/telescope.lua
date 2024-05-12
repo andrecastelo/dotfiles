@@ -13,6 +13,7 @@ end
 
 return {
     "nvim-telescope/telescope.nvim",
+    enabled = not vim.g.vscode,
     tag = "0.1.3",
     dependencies = { { "nvim-lua/plenary.nvim" } },
     config = function()

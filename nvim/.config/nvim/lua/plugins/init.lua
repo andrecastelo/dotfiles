@@ -1,7 +1,8 @@
 return {
-    { "christoomey/vim-tmux-navigator", event = "VimEnter" },
+    { "christoomey/vim-tmux-navigator", event = "VimEnter", enabled = not vim.g.vscode },
     {
         "folke/tokyonight.nvim",
+        enabled = not vim.g.vscode,
         config = function()
             require("tokyonight").setup({
                 style = "night",
@@ -20,6 +21,7 @@ return {
     },
     {
         "folke/trouble.nvim",
+        enabled = not vim.g.vscode,
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
             -- your configuration comes here
@@ -50,6 +52,7 @@ return {
     },
     {
         "folke/which-key.nvim",
+        enabled = not vim.g.vscode,
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 500
@@ -62,14 +65,27 @@ return {
     },
     {
         "glepnir/dashboard-nvim",
+        enabled = not vim.g.vscode,
         event = "VimEnter",
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
-    { "IndianBoy42/tree-sitter-just" },
-    { "lewis6991/gitsigns.nvim" },
-    { "mbbill/undotree" },
-    { "numToStr/Comment.nvim" },
-    { "nvim-treesitter/playground" },
+    {
+        "IndianBoy42/tree-sitter-just",
+        enabled = not vim.g.vscode,
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+        enabled = not vim.g.vscode,
+    },
+    {
+        "mbbill/undotree",
+        enabled = not vim.g.vscode,
+    },
+
+    {
+        "nvim-treesitter/playground",
+        enabled = not vim.g.vscode,
+    },
     {
         "nvim-treesitter/nvim-treesitter-context",
         enabled = false,
@@ -79,8 +95,21 @@ return {
             })
         end
     },
-    { "nvim-tree/nvim-web-devicons" },
-    { "rose-pine/neovim",           as = "rose-pine" },
-    { "tpope/vim-fugitive" },
-    { "tpope/vim-rhubarb" },
+    {
+        "nvim-tree/nvim-web-devicons",
+        enabled = not vim.g.vscode,
+    },
+    {
+        "rose-pine/neovim",
+        enabled = not vim.g.vscode,
+        as = "rose-pine"
+    },
+    {
+        "tpope/vim-fugitive",
+        enabled = not vim.g.vscode,
+    },
+    {
+        "tpope/vim-rhubarb",
+        enabled = not vim.g.vscode,
+    },
 }

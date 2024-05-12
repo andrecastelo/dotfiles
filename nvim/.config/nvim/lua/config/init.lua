@@ -1,12 +1,14 @@
 require("config.remap")
 require("config.set")
 
-vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
+if not vim.g.vscode then
+    vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
     pattern = "*",
     command = "normal zR",
-})
+    })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = "*",
     command = "lua vim.lsp.buf.format({ async = true })",
-})
+    })
+end
