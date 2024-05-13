@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 
-
 if not vim.g.vscode then
     local wk = require("which-key")
     wk.register({
@@ -23,6 +22,7 @@ if not vim.g.vscode then
             "search and replace the word under the cursor",
         },
         ["<leader>Y"] = { [["+Y]], "copy to outside clipboard" },
+        -- ["<leader>h"] = { ":Oil<CR>", "open oil" },
         ["<leader>h"] = { ":NvimTreeFindFileToggle<CR>", "open the nvim tree" },
 
         -- change window sizes using arrow keys by pressing:

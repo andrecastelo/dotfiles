@@ -5,6 +5,8 @@ return {
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
+        local telescope = require("telescope.builtin")
+
         require("oil").setup({
             -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
             -- Set to false if you still want to use netrw.
@@ -68,7 +70,8 @@ return {
                 ["<C-s>"] = "actions.select_vsplit",
                 ["<C-h>"] = "actions.select_split",
                 ["<C-t>"] = "actions.select_tab",
-                ["<C-p>"] = "actions.preview",
+                -- ["<C-p>"] = "actions.preview",
+                ["<C-p>"] = telescope.git_files,
                 ["<C-c>"] = "actions.close",
                 ["<C-l>"] = "actions.refresh",
                 ["-"] = "actions.parent",
