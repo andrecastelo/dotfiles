@@ -11,7 +11,9 @@ RIPGREP_CONFIG_PATH = '{{env.HOME}}/.config/rg/ripgreprc'
 fd = 'latest'
 fzf = 'latest'
 ripgrep = 'latest'
+yamllint = 'latest'
+# runtimes
 bun = 'latest'
+go = ['1.22', '1.21']
 node = '20'
 python = ['latest', 'sub-0.1:latest', 'sub-0.2:latest', 'sub-0.3:latest']
-go = ['1.22', '1.21']
