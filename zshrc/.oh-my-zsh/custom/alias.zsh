@@ -13,5 +13,5 @@ alias radar="cd ~/Projects/parade/public-carriers-api/"
 alias codriver="cd ~/Projects/parade/codriver/"
 
 alias dotfiles="nvim ~/dotfiles/"
-alias stage-db="$CLOUD_SQL_PROXY parade-capacity-stage:us-central1:capacity-api-stage-pg15 --port 2345 capi_stage:i91ArXnHKDp3W9EDCa"
+alias stage-db="cloud-sql-proxy parade-capacity-stage:us-central1:capacity-api-stage-pg15 --port 2345 capi_stage:i91ArXnHKDp3W9EDCa"
 
