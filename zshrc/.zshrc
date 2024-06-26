@@ -147,3 +147,5 @@ export PATH=$HOME/.local/bin:$PATH
 [ -f /opt/homebrew/share/google-cloud-sdk/path.zsh.inc ] && source "/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
 [ -f /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc ] && source "/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc"
 
+export CLOUD_SQL_PROXY="/Users/andre/cloud-sql-proxy"
+
