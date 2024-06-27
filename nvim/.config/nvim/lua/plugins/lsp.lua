@@ -1,3 +1,30 @@
+local augroup_formatting = vim.api.nvim_create_augroup("LspFormatting", {})
+
+local on_attach = function(client, bufnr)
+    local opts = { buffer = bufnr, remap = false, noremap = true }
+
+    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+
+    if client.server_capabilities.documentFormattingProvider then
+        vim.api.nvim_clear_autocmds({ group = augroup_formatting, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({ async = true })
+            end,
+            group = augroup_formatting,
+        })
+    end
+end
+
 return {
     "VonHeikemen/lsp-zero.nvim",
     enabled = not vim.g.vscode,
@@ -86,20 +113,8 @@ return {
             },
         })
 
-        lsp.on_attach(function(client, bufnr)
-            local opts = { buffer = bufnr, remap = false, noremap = true }
+        lsp.on_attach(on_attach)
 
-            vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-            vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-            vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-            vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-            vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-            vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-            vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-            vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-            vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-            vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        end)
 
         lsp.setup()
 
@@ -108,6 +123,8 @@ return {
         })
 
         local lspconfig = require("lspconfig")
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+
         lspconfig.lua_ls.setup({
             settings = {
                 Lua = {
@@ -131,13 +148,26 @@ return {
             },
         })
 
-
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-
         lspconfig.emmet_ls.setup({
             filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte",
                 "pug", "typescriptreact", "vue" },
             capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        -- https://github.com/astral-sh/ruff
+        lspconfig.ruff.setup({
+            capabilities = capabilities,
+            autostart = os.getenv("DISABLE_RUFF") ~= "1",
+            on_attach = function(client, bufnr)
+                client.server_capabilities.hoverProvider = false
+                on_attach(client, bufnr)
+            end,
+            settings = {
+                prioritizeFileConfiguration = true,
+                fixAll = true,
+                organizeImports = true,
+            },
         })
     end,
 }
