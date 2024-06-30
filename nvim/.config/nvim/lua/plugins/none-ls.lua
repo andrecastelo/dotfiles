@@ -1,6 +1,6 @@
 return {
     "nvimtools/none-ls.nvim",
-    enabled = not vim.g.vscode,
+    enabled = false,
     config = function()
         -- https://github.com/nvimtools/none-ls.nvim
         local diagnostics_format = "[#{c}] #{m} (#{s})"

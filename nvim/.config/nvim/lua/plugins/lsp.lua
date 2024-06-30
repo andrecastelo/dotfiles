@@ -12,17 +12,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-
-    if client.server_capabilities.documentFormattingProvider then
-        vim.api.nvim_clear_autocmds({ group = augroup_formatting, buffer = bufnr })
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function()
-                vim.lsp.buf.format({ async = true })
-            end,
-            group = augroup_formatting,
-        })
-    end
 end
 
 return {
@@ -149,8 +138,8 @@ return {
         })
 
         lspconfig.emmet_ls.setup({
-            filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte",
-                "pug", "typescriptreact", "vue" },
+            filetypes = { "astro","css", "eruby", "html", "javascript", "javascriptreact", "less",
+                "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
             capabilities = capabilities,
             on_attach = on_attach,
         })
