@@ -51,6 +51,10 @@ brew install Ripgrep fzf stow fd
   brew install fd
   ```
 
+- [pipx](https://github.com/pypa/pipx)
+
+`pipx`
+
 ## Usage
 
 Just run `install.sh`, which will unstow and re-stow all files, or run `stow`:
