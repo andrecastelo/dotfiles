@@ -124,6 +124,8 @@ export EDITOR="/usr/local/bin/nvim"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
+
 
 if command -v fd &> /dev/null; then
     export FZF_DEFAULT_COMMAND="fd -I . $HOME"
