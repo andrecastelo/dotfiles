@@ -1,7 +1,6 @@
 alias ll="ls -lha"
 alias zshcustom="nvim ~/.oh-my-zsh/custom/alias.zsh"
 alias activate_poetry="source \"\$(poetry env list --full-path | grep Activated | cut -d' ' -f1 )/bin/activate\""
-alias nvim-config="cd ~/.config/nvim && nvim ."
 
 # git aliases
 alias gs="git status"
