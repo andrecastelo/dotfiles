@@ -103,8 +103,10 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 
-export GPG_TTY=$(tty)
+# mise.jdx.dev
+eval "$(~/.local/bin/mise activate zsh)"
 
+export GPG_TTY=$(tty)
 
 # pnpm
 export PNPM_HOME="/Users/andrecastelo/Library/pnpm"
@@ -124,8 +126,6 @@ export EDITOR="/usr/local/bin/nvim"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source <(fzf --zsh)
-
 
 if command -v fd &> /dev/null; then
     export FZF_DEFAULT_COMMAND="fd -I . $HOME"
@@ -133,9 +133,6 @@ if command -v fd &> /dev/null; then
     export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 fi
 
-
-# mise.jdx.dev
-eval "$(~/.local/bin/mise activate zsh)"
 
 # for https in localhost
 # export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
