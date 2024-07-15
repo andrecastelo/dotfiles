@@ -10,28 +10,28 @@ return {
 			{ "<leader>a", mark.add_file, desc = "Add file to harpoon" },
 			{ "<C-e>", ui.toggle_quick_menu, desc = "Open harpoon menu" },
 			{
-				"ħ",
+				"<M-h>",
 				function()
 					ui.nav_file(1)
 				end,
 				desc = "Go to harpoon entry 1",
 			},
 			{
-				"ʝ",
+				"<M-j>",
 				function()
 					ui.nav_file(2)
 				end,
 				desc = "Go to harpoon entry 2",
 			},
 			{
-				"ĸ",
+				"<M-k>",
 				function()
 					ui.nav_file(3)
 				end,
 				desc = "Go to harpoon entry 3",
 			},
 			{
-				"ł",
+				"<M-l>",
 				function()
 					ui.nav_file(4)
 				end,
