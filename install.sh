@@ -13,6 +13,9 @@ stow mise
 stow -D zshrc
 stow zshrc
 
+stow -D fzf 
+stow fzf
+
 stow -D bin
 stow bin
 
