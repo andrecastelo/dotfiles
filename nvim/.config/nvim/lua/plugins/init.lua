@@ -96,10 +96,10 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
-		enabled = false,
+		enabled = not vim.g.vscode,
 		config = function()
 			require("treesitter-context").setup({
-				multiline_threshold = 1,
+				multiline_threshold = 2,
 			})
 		end,
 	},
