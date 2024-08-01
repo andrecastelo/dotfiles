@@ -7,6 +7,7 @@ return {
 
 		zenMode.setup({
 			window = {
+				width = 100,
 				backdrop = 0.90,
 				options = {
 					foldcolumn = "0",
