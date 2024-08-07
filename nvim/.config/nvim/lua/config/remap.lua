@@ -28,6 +28,7 @@ if not vim.g.vscode then
 			desc = "search and replace the word under the cursor",
 		},
 		{ "<leader>Y", [["+Y]], desc = "copy to outside clipboard" },
+		{ "<C-b>", ":NvimTreeToggle<CR>", desc = "toggle nvim-tree" },
 		{ "<leader>h", ":Oil<CR>", desc = "open oil" },
 		-- { "<leader>h", ":NvimTreeFindFileToggle<CR>", desc = "open the nvim tree" },
 
