@@ -12,7 +12,13 @@ fd = 'latest'
 fzf = 'latest'
 ripgrep = 'latest'
 yamllint = 'latest'
-# runtimes
+# npm stuff
+"npm:@vtsls/language-server" = "latest"
+"npm:eslint" = "latest"
+"npm:eslint_d" = "latest"
+"npm:prettier" = "latest"
+"npm:@fsouza/prettierd" = "latest"
+# runtimes (needs to be last)
 bun = 'latest'
 go = ['1.22', '1.21']
 node = '20'
