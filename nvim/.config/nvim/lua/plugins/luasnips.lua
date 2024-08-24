@@ -1,5 +1,6 @@
 return {
 	"L3MON4D3/LuaSnip",
+	enabled = not vim.g.vscode,
 	dependencies = { "rafamadriz/friendly-snippets" },
 
 	config = function()
