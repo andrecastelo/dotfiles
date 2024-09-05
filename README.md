@@ -3,8 +3,19 @@
 **tl;dr**:
 
 ```
-brew install Ripgrep fzf stow fd
+$ curl https://mise.run | sh
+$ mise trust && mise install
 ```
+
+For tmux:
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+And inside a tmux session: `<C-a> + I` to install.
+
+## Tools
 
 - [Ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 
