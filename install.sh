@@ -22,6 +22,6 @@ stow zed
 stow -D zshrc
 stow zshrc
 
-ln -s bin/nvim-cfg ~/.local/bin/nvim-cfg 
-ln -s bin/tmux-sessionizer ~/.local/bin/tmux-sessionizer
+ln -s $HOME/dotfiles/bin/nvim-cfg ~/.local/bin/nvim-cfg 
+ln -s $HOME/dotfiles/bin/tmux-sessionizer ~/.local/bin/tmux-sessionizer
 
