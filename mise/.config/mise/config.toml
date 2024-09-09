@@ -8,7 +8,6 @@ PIP_REQUIRE_VIRTUALENV = 'true'
 RIPGREP_CONFIG_PATH = '{{env.HOME}}/.config/rg/ripgreprc'
 
 [tools]
-fd = 'latest'
 fzf = 'latest'
 ripgrep = 'latest'
 yamllint = 'latest'
