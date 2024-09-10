@@ -2,6 +2,7 @@ return {
     { "christoomey/vim-tmux-navigator", event = "VimEnter", enabled = not vim.g.vscode },
     {
         "echasnovski/mini.pairs",
+        enabled = not vim.g.vscode,
         version = "*",
         config = function()
             require("mini.pairs").setup()
@@ -9,6 +10,7 @@ return {
     },
     {
         "echasnovski/mini.surround",
+        enabled = not vim.g.vscode,
         version = "*",
         config = function()
             require("mini.surround").setup()
@@ -89,7 +91,6 @@ return {
         "mbbill/undotree",
         enabled = not vim.g.vscode,
     },
-
     {
         "nvim-treesitter/playground",
         enabled = not vim.g.vscode,
