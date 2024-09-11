@@ -114,10 +114,6 @@ return {
         as = "rose-pine",
     },
     {
-        "tpope/vim-fugitive",
-        enabled = not vim.g.vscode,
-    },
-    {
         "tpope/vim-rhubarb",
         enabled = not vim.g.vscode,
     },
