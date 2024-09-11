@@ -9,7 +9,6 @@ RIPGREP_CONFIG_PATH = '{{env.HOME}}/.config/rg/ripgreprc'
 
 [tools]
 fzf = 'latest'
-ripgrep = 'latest'
 yamllint = 'latest'
 # npm stuff
 "npm:@vtsls/language-server" = "latest"
@@ -19,7 +18,7 @@ yamllint = 'latest'
 "npm:@fsouza/prettierd" = "latest"
 # runtimes (needs to be last)
 bun = 'latest'
-go = ['1.22', '1.21']
+go = 'latest'
 node = "20"
 python = ['latest', 'sub-0.1:latest', 'sub-0.2:latest', 'sub-0.3:latest']
 neovim = "nightly"
