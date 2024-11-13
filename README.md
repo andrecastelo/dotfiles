@@ -62,7 +62,11 @@ And inside a tmux session: `<C-a> + I` to install.
   brew install fd
   ```
 
-- [pipx](https://github.com/pypa/pipx)
+- [pngpaste](*https://github.com/jcsalterego/pngpaste)
+
+  ```
+  brew install pngpaste
+  ```
 
 `pipx`
 
