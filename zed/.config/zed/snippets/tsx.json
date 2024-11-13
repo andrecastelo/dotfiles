@@ -1,0 +1,7 @@
+{
+  "Block Comments": {
+    "prefix": "bc",
+    "body": ["/**", " * ${0}", " */"],
+    "description": "Block comment"
+  }
+}
