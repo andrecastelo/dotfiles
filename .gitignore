@@ -1,3 +1,5 @@
 plugin/packer_compiled.lua
 startup.log
 zed/.config/zed/embeddings
+zed/.config/zed/prompts
+.DS_Store
