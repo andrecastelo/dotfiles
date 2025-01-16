@@ -148,3 +148,4 @@ export PATH=$HOME/.local/bin:$PATH
 
 export CLOUD_SQL_PROXY="/Users/andre/cloud-sql-proxy"
 
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

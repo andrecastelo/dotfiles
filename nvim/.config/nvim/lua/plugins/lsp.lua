@@ -1,5 +1,3 @@
-local augroup_formatting = vim.api.nvim_create_augroup("LspFormatting", {})
-
 local on_attach = function(client, bufnr)
     local opts = { buffer = bufnr, remap = false, noremap = true }
 
@@ -75,7 +73,7 @@ return {
             float = {
                 style = "minimal",
                 border = "rounded",
-                source = "always",
+                source = true,
                 header = "",
                 prefix = "",
             },
@@ -85,6 +83,7 @@ return {
 
         require("mason").setup({})
         require("mason-lspconfig").setup({
+            automatic_installation = true,
             ensure_installed = {
                 -- lua
                 "lua_ls",
@@ -99,7 +98,6 @@ return {
 
                 -- python
                 "pyright",
-                "ruff_lsp",
 
                 -- golang
                 "gopls",
@@ -150,6 +148,7 @@ return {
                 })
             end,
         })
+        lspconfig.gopls.setup({})
 
         lspconfig.vtsls.setup({})
         lspconfig.emmet_ls.setup({
