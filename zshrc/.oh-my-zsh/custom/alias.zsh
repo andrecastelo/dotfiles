@@ -5,6 +5,7 @@ alias activate_poetry="source \"\$(poetry env list --full-path | grep Activated 
 # git aliases
 alias gs="git status"
 alias grbc="git rebase --continue"
+alias lg="lazygit"
 
 # project aliases
 alias p="cd ~/Projects"
