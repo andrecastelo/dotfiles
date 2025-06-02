@@ -19,6 +19,6 @@ yamllint = 'latest'
 # runtimes (needs to be last)
 bun = 'latest'
 go = 'latest'
-node = "20"
 python = ['latest', 'sub-0.1:latest', 'sub-0.2:latest', 'sub-0.3:latest']
 neovim = "nightly"
+node = "23"
