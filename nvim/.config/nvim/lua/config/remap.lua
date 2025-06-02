@@ -54,6 +54,8 @@ if not vim.g.vscode then
         { "J",         ":m '>+1<CR>gv=gv", desc = "Move line down",                                     mode = "v" },
         { "K",         ":m '<-2<CR>gv=gv", desc = "Move line up",                                       mode = "v" },
         { "<F1>",      "<ESC>",            mode = { "n", "v", "i" } },
+        { "jj",        "<ESC>",            mode = { "i" } },
+        { "jk",        "<ESC>",            mode = { "i" } },
     })
 else
     vim.keymap.set("n", "J", "mzJ`z")
