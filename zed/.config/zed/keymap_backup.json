@@ -2,7 +2,7 @@
   {
     "context": "Pane",
     "bindings": {
-      "ctrl-shift-tab": "pane::ActivatePreviousItem",
+      "ctrl-shift-tab": "pane::ActivatePrevItem",
       "ctrl-tab": "pane::ActivateNextItem"
     }
   },
@@ -17,10 +17,10 @@
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
       "shift-k": "editor::Hover",
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
       // put key-bindings here if you want them to work only in normal mode
     }
   },
@@ -36,22 +36,6 @@
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
       // put key-bindings here if you want them to work in insert mode
-    }
-  },
-  // {
-  //   "context": "Editor && edit_prediction",
-  //   "bindings": {
-  //     "alt-l": "editor::AcceptEditPrediction",
-  //     // Optional: This makes the default `tab` binding do nothing.
-  //     "tab": null
-  //   }
-  // },
-  {
-    "context": "Editor && edit_prediction_conflict",
-    "bindings": {
-      "alt-l": "editor::AcceptEditPrediction",
-      // Optional: This makes the default `alt-tab` binding do nothing.
-      "alt-tab": null
     }
   }
 ]

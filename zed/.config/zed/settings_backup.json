@@ -10,15 +10,11 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "agent": {
+  "assistant": {
     // "default_model" {
     //   "provider": "anthropic",
     //   "model": "claude-3-5-sonnet-latest"
     // },
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4-latest"
-    },
     "version": "2"
   },
   "theme": "Tokyo Night Storm",
