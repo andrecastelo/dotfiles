@@ -83,7 +83,6 @@ return {
 
         require("mason").setup({})
         require("mason-lspconfig").setup({
-            automatic_installation = true,
             ensure_installed = {
                 -- lua
                 "lua_ls",
@@ -105,6 +104,7 @@ return {
                 -- misc
                 "marksman",
             },
+            automatic_enable = false,
         })
 
         lspconfig.lua_ls.setup({
@@ -198,6 +198,10 @@ return {
                 expand = function(args)
                     require("luasnip").lsp_expand(args.body)
                 end,
+            },
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
             },
             sources = cmp.config.sources({
                 { name = "path" },
