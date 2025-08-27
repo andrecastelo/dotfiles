@@ -38,14 +38,14 @@
       // put key-bindings here if you want them to work in insert mode
     }
   },
-  // {
-  //   "context": "Editor && edit_prediction",
-  //   "bindings": {
-  //     "alt-l": "editor::AcceptEditPrediction",
-  //     // Optional: This makes the default `tab` binding do nothing.
-  //     "tab": null
-  //   }
-  // },
+  {
+    "context": "Editor && edit_prediction",
+    "bindings": {
+      "alt-l": "editor::AcceptEditPrediction",
+      // Optional: This makes the default `tab` binding do nothing.
+      "tab": null
+    }
+  },
   {
     "context": "Editor && edit_prediction_conflict",
     "bindings": {

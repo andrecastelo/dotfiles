@@ -10,6 +10,7 @@ RIPGREP_CONFIG_PATH = '{{env.HOME}}/.config/rg/ripgreprc'
 [tools]
 fzf = 'latest'
 yamllint = 'latest'
+zoxide = 'latest'
 # npm stuff
 "npm:@vtsls/language-server" = "latest"
 "npm:eslint" = "latest"

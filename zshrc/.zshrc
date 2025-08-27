@@ -150,3 +150,6 @@ export CLOUD_SQL_PROXY="/Users/andre/cloud-sql-proxy"
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
+if command -v zoxide > /dev/null 2>&1; then
+    eval "$(zoxide init --cmd cd zsh)"
+fi

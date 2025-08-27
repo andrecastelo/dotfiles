@@ -10,6 +10,7 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
+  "file_scan_inclusions": ["*.env*", "*.mise.toml*"],
   "agent": {
     // "default_model" {
     //   "provider": "anthropic",
@@ -17,9 +18,8 @@
     // },
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4-latest"
-    },
-    "version": "2"
+      "model": "claude-sonnet-4"
+    }
   },
   "theme": "Tokyo Night Storm",
   "vim_mode": true,
