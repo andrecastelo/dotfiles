@@ -25,7 +25,7 @@ end
 
 return {
     "nvim-tree/nvim-tree.lua",
-    enabled = false,
+    enabled = not vim.g.vscode,
     dependencies = {
         "nvim-tree/nvim-web-devicons", -- optional
     },
@@ -53,6 +53,11 @@ return {
             git = {
                 ignore = false,
             },
+        })
+
+        local wk = require("which-key")
+        wk.add({
+            { "<C-b>", ":NvimTreeFindFileToggle<CR>", desc = "toggle nvim-tree" },
         })
     end,
 }

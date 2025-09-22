@@ -84,10 +84,6 @@ return {
         enabled = not vim.g.vscode,
     },
     {
-        "lewis6991/gitsigns.nvim",
-        enabled = not vim.g.vscode,
-    },
-    {
         "mbbill/undotree",
         enabled = not vim.g.vscode,
     },

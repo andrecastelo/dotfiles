@@ -204,9 +204,9 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             sources = cmp.config.sources({
+                { name = "luasnip", keyword_length = 2 },
                 { name = "path" },
                 { name = "nvim_lsp" },
-                { name = "luasnip", keyword_length = 2 },
                 { name = "buffer",  keyword_length = 3 },
             }),
             mapping = cmp.mapping.preset.insert({
@@ -214,7 +214,8 @@ return {
                 ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
                 ["<C-k>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-space>"] = cmp.mapping.complete(),
-                ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                ["<C-e>"] = cmp.mapping.abort(),
+                ["<CR>"] = cmp.mapping.confirm({ select = false }),
             }),
         })
     end,

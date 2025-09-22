@@ -1,28 +1,33 @@
 return {
-	"L3MON4D3/LuaSnip",
-	enabled = not vim.g.vscode,
-	dependencies = { "rafamadriz/friendly-snippets" },
+    "L3MON4D3/LuaSnip",
+    enabled = not vim.g.vscode,
+    dependencies = { "rafamadriz/friendly-snippets" },
 
-	config = function()
-		require("luasnip.loaders.from_vscode").lazy_load()
+    config = function()
+        require("luasnip.loaders.from_vscode").load({
+            paths = {
+                "./snippets"
+            }
+        })
+        require("luasnip.loaders.from_vscode").lazy_load()
 
-		local ls = require("luasnip")
-		local wk = require("which-key")
-		wk.add({
-			{
-				"<C-l>",
-				function()
-					ls.jump(1)
-				end,
-				mode = { "i", "s" },
-			},
-			{
-				"<C-h>",
-				function()
-					ls.jump(-1)
-				end,
-				mode = { "i", "s" },
-			},
-		})
-	end,
+        local ls = require("luasnip")
+        local wk = require("which-key")
+        wk.add({
+            {
+                "<C-l>",
+                function()
+                    ls.jump(1)
+                end,
+                mode = { "i", "s" },
+            },
+            {
+                "<C-h>",
+                function()
+                    ls.jump(-1)
+                end,
+                mode = { "i", "s" },
+            },
+        })
+    end,
 }

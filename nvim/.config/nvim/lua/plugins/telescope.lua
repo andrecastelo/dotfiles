@@ -87,6 +87,7 @@ return {
         })
 
         local telescope = require("telescope")
+        local actions = require("telescope.actions")
 
         telescope.setup({
             defaults = {
@@ -129,6 +130,13 @@ return {
                 find_files = {
                     hidden = true,
                 },
+                buffers = {
+                    mappings = {
+                        n = {
+                            ["<leader>x"] = actions.delete_buffer + actions.move_to_top,
+                        }
+                    }
+                }
             },
         })
     end,

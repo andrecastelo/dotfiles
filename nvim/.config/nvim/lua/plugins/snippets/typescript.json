@@ -1,0 +1,12 @@
+{
+  "Cn": {
+    "prefix": "cn",
+    "body": ["import { cn } from \"@ui/lib/utils\";"],
+    "description": "Cn function utils"
+  },
+  "Decimal": {
+    "prefix": "dec",
+    "body": ["import Decimal from \"decimal.js\";"],
+    "description": "Decimal import"
+  }
+}
