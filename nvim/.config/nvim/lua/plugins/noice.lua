@@ -1,7 +1,8 @@
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
-    enabled = not vim.g.vscode,
+    -- enabled = not vim.g.vscode,
+    enabled = true,
     opts = {
         -- add any options here
     },
@@ -32,7 +33,7 @@ return {
                 },
                 message = {
                     -- Messages shown by lsp servers
-                    enabled = false,
+                    enabled = true,
                 },
             }
         })

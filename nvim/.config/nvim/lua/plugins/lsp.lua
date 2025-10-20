@@ -107,11 +107,14 @@ return {
             automatic_enable = false,
         })
 
-        lspconfig.lua_ls.setup({
+        vim.lsp.config("lua_ls", {
+            command = { "lua-language-server" },
             on_init = function(client)
                 lsp.nvim_lua_settings(client, {})
             end,
+            root_markers = { '.luarc.json', '.luarc.jsonc' },
             on_attach = on_attach,
+            filetypes = { "lua" },
             settings = {
                 Lua = {
                     runtime = {
@@ -131,8 +134,10 @@ return {
                         enable = false,
                     },
                 },
-            },
+            }
         })
+
+        vim.lsp.enable("lua_ls")
 
         lspconfig.eslint.setup({
             settings = {
