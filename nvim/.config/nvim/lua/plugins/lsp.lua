@@ -141,7 +141,8 @@ return {
 
         lspconfig.eslint.setup({
             settings = {
-                workingDirectory = { mode = "location" }
+                workingDirectory = { mode = "location" },
+                format = true
             },
             root_dir = lspconfig.util.find_git_ancestor,
 

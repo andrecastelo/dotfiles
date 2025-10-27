@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:neovim.io)",
+      "Read(//Users/andrecastelo/.local/share/nvim/lazy/nvim-lspconfig/lua/lspconfig/configs/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
