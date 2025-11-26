@@ -12,4 +12,18 @@ M.format = function(args)
     require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end
 
+---@diagnostic disable-next-line: unused-local
+M.on_attach = function(client, bufnr)
+    local opts = { buffer = bufnr, remap = false, noremap = true }
+    vim.keymap.set("n", "gd", function()
+        vim.lsp.buf.definition()
+    end, opts)
+    vim.keymap.set("n", "<leader>vws", function()
+        vim.lsp.buf.workspace_symbol()
+    end, opts)
+    vim.keymap.set("n", "<leader>vd", function()
+        vim.diagnostic.open_float()
+    end, opts)
+end
+
 return M

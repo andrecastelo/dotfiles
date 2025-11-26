@@ -9,5 +9,6 @@ return {
                 enable = false,
             }
         }
-    }
+    },
+    on_attach = require("andrecastelo.utils").on_attach
 }

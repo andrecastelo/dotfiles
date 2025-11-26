@@ -69,6 +69,35 @@ return {
             automatic_enable = true,
         })
 
+        local base_on_attach = vim.lsp.config.eslint.on_attach
+        vim.lsp.config("eslint", {
+            on_attach = function(client, bufnr)
+                if not base_on_attach then return end
+
+                base_on_attach(client, bufnr)
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                    buffer = bufnr,
+                    command = "LspEslintFixAll",
+                })
+            end,
+        })
+
+        -- vim.api.nvim_create_autocmd("LspAttach", {
+        --     callback = function(args)
+        --         local client = vim.lsp.get_client_by_id(args.data.client_id)
+        --         if not client then
+        --             return
+        --         end
+        --
+        --         if client.name == "eslint" then
+        --             vim.api.nvim_create_autocmd("BufWritePre", {
+        --                 buffer = args.buf,
+        --                 command = "LspEslintFixAll",
+        --             })
+        --         end
+        --     end,
+        -- })
+
 
         local cmp = require("cmp")
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
