@@ -1,10 +1,11 @@
 return {
-    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     enabled = not vim.g.vscode,
     dependencies = {
         -- LSP Support
         { "neovim/nvim-lspconfig" },
         { "williamboman/mason.nvim" },
+        { "williamboman/mason-lspconfig.nvim" },
 
         -- Autocompletion
         { "hrsh7th/nvim-cmp" },
@@ -41,17 +42,16 @@ return {
         })
 
         require("mason").setup()
-        local lspconfig = require("mason-lspconfig")
-
-        lspconfig.setup({
+        require("mason-lspconfig").setup()
+        require("mason-tool-installer").setup({
             ensure_installed = {
                 -- lua
                 "lua_ls",
 
                 -- front-end
                 "jsonls",
-                -- "vtsls",
-                "ts_ls",
+                "vtsls",
+                -- "ts_ls",
                 "html",
                 "emmet_ls",
                 "tailwindcss",
