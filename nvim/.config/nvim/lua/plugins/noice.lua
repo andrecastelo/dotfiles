@@ -1,8 +1,7 @@
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
-    -- enabled = not vim.g.vscode,
-    enabled = true,
+    enabled = not vim.g.vscode,
     opts = {
         -- add any options here
     },

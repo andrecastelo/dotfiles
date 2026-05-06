@@ -7,15 +7,37 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "features": {
-    "edit_prediction_provider": "zed"
+  "show_signature_help_after_edits": true,
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
   },
-  "assistant": {
+  "edit_predictions": {
+    "mode": "subtle",
+  },
+  "file_scan_inclusions": ["*.env*", "*.mise.toml*"],
+  "agent": {
     // "default_model" {
     //   "provider": "anthropic",
     //   "model": "claude-3-5-sonnet-latest"
     // },
-    "version": "2"
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4",
+    },
   },
   "theme": "Tokyo Night Storm",
   "vim_mode": true,
@@ -24,23 +46,23 @@
   "cursor_blink": false,
   "relative_line_numbers": true,
   "code_actions_on_format": {
-    "source.removeUnusedImports": true
+    "source.removeUnusedImports": true,
   },
   "buffer_font_family": "FiraCode Nerd Font Mono",
   "buffer_font_features": {
-    "calt": false
+    "calt": false,
   },
   "format_on_save": "on",
   "languages": {
     "TypeScript": {
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
+        "source.fixAll.eslint": true,
+      },
     },
     "TSX": {
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
-    }
-  }
+        "source.fixAll.eslint": true,
+      },
+    },
+  },
 }

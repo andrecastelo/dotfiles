@@ -3,14 +3,14 @@
     "context": "Pane",
     "bindings": {
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
-      "ctrl-tab": "pane::ActivateNextItem"
-    }
+      "ctrl-tab": "pane::ActivateNextItem",
+    },
   },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       // put key-bindings here if you want them to work in normal & visual mode
-    }
+    },
   },
 
   {
@@ -20,38 +20,39 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
+      "ctrl-j": "workspace::ActivatePaneDown",
       // put key-bindings here if you want them to work only in normal mode
-    }
+    },
   },
   {
     // visual, visual line & visual block modes
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
     "bindings": {
       "shift-k": "editor::MoveLineUp",
-      "shift-j": "editor::MoveLineDown"
-    }
+      "shift-j": "editor::MoveLineDown",
+      "shift-s": "vim::PushAddSurrounds",
+    },
   },
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
       // put key-bindings here if you want them to work in insert mode
-    }
+    },
   },
   {
     "context": "Editor && edit_prediction",
     "bindings": {
       "alt-l": "editor::AcceptEditPrediction",
       // Optional: This makes the default `tab` binding do nothing.
-      "tab": null
-    }
+      "tab": null,
+    },
   },
   {
     "context": "Editor && edit_prediction_conflict",
     "bindings": {
       "alt-l": "editor::AcceptEditPrediction",
       // Optional: This makes the default `alt-tab` binding do nothing.
-      "alt-tab": null
-    }
-  }
+      "alt-tab": null,
+    },
+  },
 ]

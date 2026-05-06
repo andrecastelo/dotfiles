@@ -40,6 +40,7 @@ if not vim.g.vscode then
     vim.wo.foldcolumn = "1"
     vim.opt.foldmethod = "expr"
     vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+    vim.opt.foldlevelstart = 99
 
     vim.opt.guicursor = ""
 end

@@ -124,6 +124,7 @@ esac
 export GOPATH="/Users/andrecastelo/Projects"
 export GOBIN="/Users/andrecastelo/Projects/gobin"
 export PATH="$PATH:$GOROOT/bin:$GOBIN"
+export GOPRIVATE="github.com/fireflyprotocol/*"
 
 # editor setup
 export EDITOR="/usr/local/bin/nvim"

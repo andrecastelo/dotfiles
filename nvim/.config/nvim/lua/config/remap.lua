@@ -2,7 +2,9 @@ vim.g.mapleader = " "
 
 local cn_function = function()
     -- Get the visual selection
+    ---@diagnostic disable-next-line: deprecated
     local _, csrow, cscol, _ = unpack(vim.fn.getpos("'<"))
+    ---@diagnostic disable-next-line: deprecated
     local _, cerow, cecol, _ = unpack(vim.fn.getpos("'>"))
 
     -- Neovim uses 1-based indexing for rows, adjust for Lua (0-based)

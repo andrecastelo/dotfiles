@@ -119,8 +119,8 @@ return {
                 { name = "buffer",  keyword_length = 3 },
             }),
             mapping = cmp.mapping.preset.insert({
-                ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-                ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+                ["<C-n>"] = cmp.mapping.select_prev_item(cmp_select),
+                ["<C-m>"] = cmp.mapping.select_next_item(cmp_select),
                 ["<C-k>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),

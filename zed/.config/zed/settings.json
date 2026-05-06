@@ -7,11 +7,47 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "edit_predictions": {
-    "mode": "subtle"
+  "project_panel": {
+    "dock": "right"
   },
-  "features": {
-    "edit_prediction_provider": "zed"
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "colorize_brackets": true,
+  "use_system_prompts": false,
+  "use_system_path_prompts": false,
+  "gutter": {
+    "min_line_number_digits": 5,
+    "folds": false,
+    "breakpoints": false,
+    "runnables": false,
+  },
+  "show_signature_help_after_edits": true,
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+  },
+  "edit_predictions": {
+    "mode": "subtle",
   },
   "file_scan_inclusions": ["*.env*", "*.mise.toml*"],
   "agent": {
@@ -19,35 +55,38 @@
     //   "provider": "anthropic",
     //   "model": "claude-3-5-sonnet-latest"
     // },
+    "dock": "right",
     "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
       "provider": "zed.dev",
-      "model": "claude-sonnet-4"
-    }
+      "model": "claude-opus-4-6",
+    },
   },
   "theme": "Tokyo Night Storm",
   "vim_mode": true,
   "ui_font_size": 16,
   "buffer_font_size": 14,
   "cursor_blink": false,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "code_actions_on_format": {
-    "source.removeUnusedImports": true
+    "source.removeUnusedImports": true,
   },
   "buffer_font_family": "FiraCode Nerd Font Mono",
   "buffer_font_features": {
-    "calt": false
+    "calt": false,
   },
   "format_on_save": "on",
   "languages": {
     "TypeScript": {
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
+        "source.fixAll.eslint": true,
+      },
     },
     "TSX": {
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
-    }
-  }
+        "source.fixAll.eslint": true,
+      },
+    },
+  },
 }
