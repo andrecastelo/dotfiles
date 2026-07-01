@@ -19,6 +19,6 @@ zoxide = 'latest'
 # runtimes (needs to be last)
 bun = 'latest'
 go = 'latest'
-python = ['latest', 'sub-0.1:latest', 'sub-0.2:latest', 'sub-0.3:latest']
+python = "3.14"
 neovim = "nightly"
 node = "23"
