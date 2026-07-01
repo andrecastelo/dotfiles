@@ -91,6 +91,12 @@ if not vim.g.vscode then
         cn_function,
         { range = true, desc = "Wrap visual selection in {cn(...)}" }
     )
+
+    vim.api.nvim_create_user_command("Path", function()
+        local path = vim.fn.expand("%:p")
+        vim.fn.setreg("+", path)
+        vim.notify(path)
+    end, { desc = "Copy absolute path of current file to clipboard" })
 else
     vim.keymap.set("n", "J", "mzJ`z")
     vim.keymap.set("n", "n", "nzzzv")
