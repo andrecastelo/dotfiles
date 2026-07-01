@@ -65,6 +65,7 @@ return {
 
                 -- misc
                 "marksman",
+                "astro"
             },
             automatic_enable = true,
         })
