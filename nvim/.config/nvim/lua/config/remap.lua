@@ -59,6 +59,7 @@ if not vim.g.vscode then
         },
         { "<leader>Y", [["+Y]],    desc = "copy to outside clipboard" },
         { "<leader>h", ":Oil<CR>", desc = "open oil" },
+        { "<leader>j", ":Jsonpath<CR>", desc = "copy JSON path at cursor" },
 
         -- change window sizes using arrow keys by pressing:
         -- UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
@@ -92,8 +93,42 @@ if not vim.g.vscode then
         { range = true, desc = "Wrap visual selection in {cn(...)}" }
     )
 
+    vim.api.nvim_create_user_command("Jsonpath", function()
+        local node = vim.treesitter.get_node()
+        if not node then
+            vim.notify("No treesitter node at cursor", vim.log.levels.WARN)
+            return
+        end
+        local parts = {}
+        while node do
+            if node:type() == "pair" then
+                local key = node:field("key")[1]
+                if key then
+                    local text = vim.treesitter.get_node_text(key, 0)
+                    table.insert(parts, 1, (text:gsub('^"(.*)"$', "%1")))
+                end
+            elseif node:type() == "array" then
+                -- find index of the child containing cursor
+                local child = node:named_child(0)
+                local i = 0
+                while child do
+                    if vim.treesitter.is_ancestor(child, vim.treesitter.get_node()) or child == vim.treesitter.get_node() then
+                        table.insert(parts, 1, "[" .. i .. "]")
+                        break
+                    end
+                    i = i + 1
+                    child = node:named_child(i)
+                end
+            end
+            node = node:parent()
+        end
+        local path = table.concat(parts, "."):gsub("%.%[", "[")
+        vim.fn.setreg("+", path)
+        vim.notify(path)
+    end, { desc = "Copy JSON path at cursor to clipboard" })
+
     vim.api.nvim_create_user_command("Path", function()
-        local path = vim.fn.expand("%:p")
+        local path = vim.fn.expand("%:.")
         vim.fn.setreg("+", path)
         vim.notify(path)
     end, { desc = "Copy absolute path of current file to clipboard" })
