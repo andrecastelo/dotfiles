@@ -158,3 +158,7 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 if command -v zoxide > /dev/null 2>&1; then
     eval "$(zoxide init --cmd cd zsh)"
 fi
+
+# Claude Code: separate configs for work vs personal
+alias cc-work='SHELL=/bin/bash CLAUDE_CONFIG_DIR=~/.claude-work claude'
+alias cc-personal='SHELL=/bin/bash CLAUDE_CONFIG_DIR=~/.claude-personal claude'

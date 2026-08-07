@@ -67,7 +67,6 @@ return {
                 "marksman",
                 "astro"
             },
-            automatic_enable = true,
         })
 
         local base_on_attach = vim.lsp.config.eslint.on_attach
@@ -76,10 +75,12 @@ return {
                 if not base_on_attach then return end
 
                 base_on_attach(client, bufnr)
-                vim.api.nvim_create_autocmd("BufWritePre", {
-                    buffer = bufnr,
-                    command = "LspEslintFixAll",
-                })
+                -- Redundant: `codeActionOnSave.mode = "all"` in after/lsp/eslint.lua
+                -- already fixes on save, so this ran ESLint twice per write.
+                -- vim.api.nvim_create_autocmd("BufWritePre", {
+                --     buffer = bufnr,
+                --     command = "LspEslintFixAll",
+                -- })
             end,
         })
 
