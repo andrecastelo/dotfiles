@@ -58,6 +58,9 @@ return {
                 "emmet_ls",
                 "tailwindcss",
                 "eslint",
+                -- Vue/Nuxt: hybrid mode only, so this pairs with vtsls.
+                -- See lsp/vue_ls.lua and lsp/vtsls.lua.
+                "vue_ls",
 
                 -- python
                 "pyright",
