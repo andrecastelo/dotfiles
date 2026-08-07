@@ -5,23 +5,28 @@ return {
     config = function()
         local conform = require("conform")
 
+        -- prettierd is a daemon, so the config + prettier-plugin-tailwindcss load
+        -- once instead of on every save. stop_after_first means plain prettier is
+        -- only tried when prettierd isn't on PATH.
+        local prettier = { "prettierd", "prettier", stop_after_first = true }
+
         conform.setup({
             format_on_save = {
-                timeout_ms = 500,
+                timeout_ms = 3000,
                 lsp_format = "fallback",
             },
             formatters_by_ft = {
-                javascript = { "prettier" },
-                typescript = { "prettier" },
-                javascriptreact = { "prettier" },
-                typescriptreact = { "prettier" },
-                svelte = { "prettier" },
-                css = { "prettier" },
-                html = { "prettier" },
-                json = { "prettier" },
-                yaml = { "prettier" },
-                markdown = { "prettier" },
-                graphql = { "prettier" },
+                javascript = prettier,
+                typescript = prettier,
+                javascriptreact = prettier,
+                typescriptreact = prettier,
+                svelte = prettier,
+                css = prettier,
+                html = prettier,
+                json = prettier,
+                yaml = prettier,
+                markdown = prettier,
+                graphql = prettier,
 
                 lua = { "stylua" },
 

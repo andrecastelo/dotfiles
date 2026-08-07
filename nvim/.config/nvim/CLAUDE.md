@@ -16,7 +16,7 @@ Measures Neovim startup performance and displays the last 5 lines of the startup
 
 ### LSP and tooling
 - LSP servers are managed through Mason (`lua/plugins/lsp.lua`)
-- Formatting uses Conform.nvim with format-on-save enabled (500ms timeout)
+- Formatting uses Conform.nvim with format-on-save enabled (3000ms timeout)
 - The configuration uses the new `vim.lsp.config` API (migrating from lspconfig)
 
 ## Architecture
@@ -74,12 +74,16 @@ Most plugins check `not vim.g.vscode` and are disabled in VSCode. Core keybindin
 
 ### Formatting
 Conform.nvim handles formatting with these formatters by filetype:
-- JS/TS/React/Svelte/CSS/HTML/JSON/YAML/Markdown: prettier
+- JS/TS/React/Svelte/CSS/HTML/JSON/YAML/Markdown: prettierd, falling back to prettier
 - Lua: stylua
 - Python: ruff_organize_imports + ruff_format
 - Go: goimports + gofmt
 
-Format on save is enabled with 500ms timeout. Manual format: `<leader>f` or `:Format`
+Format on save is enabled with 3000ms timeout. Manual format: `<leader>f` or `:Format`
+
+prettierd is installed via mise (`npm:@fsouza/prettierd`) and resolved from PATH. It
+caches prettier config per directory — run `prettierd restart` after editing a
+`.prettierrc`.
 
 ## Key Navigation Patterns
 
