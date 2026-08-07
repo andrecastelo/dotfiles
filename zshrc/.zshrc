@@ -127,7 +127,9 @@ export PATH="$PATH:$GOROOT/bin:$GOBIN"
 export GOPRIVATE="github.com/fireflyprotocol/*"
 
 # editor setup
-export EDITOR="/usr/local/bin/nvim"
+# mise shim, so this always tracks the active mise neovim version
+export EDITOR="$HOME/.local/share/mise/shims/nvim"
+export VISUAL="$EDITOR"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
