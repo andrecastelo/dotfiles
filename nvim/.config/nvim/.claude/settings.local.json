@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:neovim.io)",
-      "Read(//Users/andrecastelo/.local/share/nvim/lazy/nvim-lspconfig/lua/lspconfig/configs/**)"
+      "Read(//Users/andrecastelo/.local/share/nvim/lazy/nvim-lspconfig/lua/lspconfig/configs/**)",
+      "Bash(claude config list:*)",
+      "Bash(claude whoami:*)",
+      "Bash(claude auth status:*)",
+      "Bash(rtk read:*)"
     ],
     "deny": [],
     "ask": []

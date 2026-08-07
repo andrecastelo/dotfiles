@@ -57,10 +57,6 @@ return {
         enabled = not vim.g.vscode,
     },
     {
-        "nvim-treesitter/playground",
-        enabled = not vim.g.vscode,
-    },
-    {
         "nvim-treesitter/nvim-treesitter-context",
         enabled = not vim.g.vscode,
         config = function()
