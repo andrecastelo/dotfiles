@@ -8,6 +8,9 @@ return {
         require("nvim-treesitter").install({
             "vimdoc", "javascript", "typescript", "python", "c",
             "lua", "vim", "query", "go", "markdown", "markdown_inline",
+            -- vue SFCs inject html/css/js into the parent parser, so the
+            -- injected languages have to be installed alongside it.
+            "vue", "html", "css",
         })
         vim.api.nvim_create_autocmd("FileType", {
             callback = function(ev)
