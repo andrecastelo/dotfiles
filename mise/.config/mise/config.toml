@@ -13,9 +13,7 @@ zoxide = 'latest'
 # npm stuff
 "npm:@vtsls/language-server" = "latest"
 "npm:eslint" = "latest"
-"npm:eslint_d" = "latest"
 "npm:prettier" = "latest"
-"npm:@fsouza/prettierd" = "latest"
 # runtimes (needs to be last)
 bun = 'latest'
 go = 'latest'
