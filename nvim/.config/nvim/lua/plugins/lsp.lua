@@ -80,12 +80,13 @@ return {
                 if not base_on_attach then return end
 
                 base_on_attach(client, bufnr)
-                -- Redundant: `codeActionOnSave.mode = "all"` in after/lsp/eslint.lua
-                -- already fixes on save, so this ran ESLint twice per write.
-                -- vim.api.nvim_create_autocmd("BufWritePre", {
-                --     buffer = bufnr,
-                --     command = "LspEslintFixAll",
-                -- })
+                -- `codeActionOnSave` is a VSCode-client setting: the server stores it
+                -- but never acts on it, and Neovim's client never reads it back. This
+                -- autocmd is the only thing that fixes on save.
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                    buffer = bufnr,
+                    command = "LspEslintFixAll",
+                })
             end,
         })
 

@@ -34,16 +34,22 @@ if not vim.g.vscode then
     local wk = require("which-key")
     wk.add({
         -- which keys
-        { "<C-h>", "<cmd> TmuxNavigateLeft<CR>",           desc = "window left" },
-        { "<C-j>", "<cmd> TmuxNavigateUp<CR>",             desc = "window up" },
-        { "<C-k>", "<cmd> TmuxNavigateDown<CR>",           desc = "window down" },
-        { "<C-l>", "<cmd> TmuxNavigateRight<CR>",          desc = "window right" },
+        { "<C-h>", "<cmd> TmuxNavigateLeft<CR>",  desc = "window left" },
+        { "<C-j>", "<cmd> TmuxNavigateUp<CR>",    desc = "window up" },
+        { "<C-k>", "<cmd> TmuxNavigateDown<CR>",  desc = "window down" },
+        { "<C-l>", "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
+        {
+            "<leader>l",
+            "<Cmd>nohlsearch<Bar>diffupdate"
+            .. "<Bar>call nvim_buf_clear_namespace(0, nvim_create_namespace('nvim.multicursor'), 0, -1)"
+            .. "<Bar>normal! <C-L><CR>",
+            desc = "clear search and multicursors",
+        },
         { "J",     "mzJ`z",                                desc = "move the line below to the end of the current line" },
         { "<C-d>", "<C-d>zz" },
         { "<C-u>", "<C-u>zz" },
         { "n",     "nzzzv" },
         { "N",     "Nzzzv" },
-        { "Q",     "<nop>",                                desc = "no op" },
         { "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", desc = "Open projects in a new session" },
         {
             "<leader>f",
@@ -57,16 +63,16 @@ if not vim.g.vscode then
             [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
             desc = "search and replace the word under the cursor",
         },
-        { "<leader>Y", [["+Y]],    desc = "copy to outside clipboard" },
-        { "<leader>h", ":Oil<CR>", desc = "open oil" },
+        { "<leader>Y", [["+Y]],         desc = "copy to outside clipboard" },
+        { "<leader>h", ":Oil<CR>",      desc = "open oil" },
         { "<leader>j", ":Jsonpath<CR>", desc = "copy JSON path at cursor" },
 
         -- change window sizes using arrow keys by pressing:
         -- UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
-        { "<S-up>",    "<c-w>+",   desc = "increase current pane height" },
-        { "<S-down>",  "<c-w>-",   desc = "decrease current pane height" },
-        { "<S-right>", "10<c-w>>", desc = "decrease current pane width" },
-        { "<S-left>",  "10<c-w><", desc = "increase current pane width" },
+        { "<S-up>",    "<c-w>+",        desc = "increase current pane height" },
+        { "<S-down>",  "<c-w>-",        desc = "decrease current pane height" },
+        { "<S-right>", "10<c-w>>",      desc = "decrease current pane width" },
+        { "<S-left>",  "10<c-w><",      desc = "increase current pane width" },
     }, { mode = "n" })
 
     wk.add({

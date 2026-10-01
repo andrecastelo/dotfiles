@@ -2,9 +2,8 @@
 return {
     settings = {
         workingDirectory = { mode = "auto" },
-        codeActionOnSave = {
-            enable = true,
-            mode = "all",
-        }
+        -- No `codeActionOnSave` here: it's a VSCode-client setting the server
+        -- ignores. Fix-on-save lives in the BufWritePre autocmd in
+        -- lua/plugins/lsp.lua.
     },
 }
