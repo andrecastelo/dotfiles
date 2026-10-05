@@ -43,4 +43,11 @@ if not vim.g.vscode then
     vim.opt.foldlevelstart = 99
 
     vim.opt.guicursor = ""
+
+    -- Neovim highlights LSP document colors by default (see :h vim.lsp.document_color),
+    -- with style = "background". With tailwindcss-language-server attached that paints a
+    -- filled swatch behind every color-ish class name, which is unreadable in dense
+    -- class lists. This is a Neovim feature, not a server one -- `tailwindCSS.colorDecorators`
+    -- is a VS Code setting and does not turn it off.
+    vim.lsp.document_color.enable(false)
 end

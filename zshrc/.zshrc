@@ -164,3 +164,4 @@ fi
 # Claude Code: separate configs for work vs personal
 alias cc-work='SHELL=/bin/bash CLAUDE_CONFIG_DIR=~/.claude-work claude'
 alias cc-personal='SHELL=/bin/bash CLAUDE_CONFIG_DIR=~/.claude-personal claude'
+alias temp="sudo powermetrics --samplers smc -i1 -n1"

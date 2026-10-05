@@ -11,10 +11,24 @@ return {
             -- vue SFCs inject html/css/js into the parent parser, so the
             -- injected languages have to be installed alongside it.
             "vue", "html", "css",
+            "gitcommit", "git_rebase", "diff",
         })
         vim.api.nvim_create_autocmd("FileType", {
             callback = function(ev)
-                pcall(vim.treesitter.start, ev.buf)
+                local lang = vim.treesitter.language.get_lang(vim.bo[ev.buf].filetype)
+                if not lang then
+                    return
+                end
+                -- Starting treesitter clears 'syntax', so bail out unless a
+                -- highlights query exists -- otherwise the buffer ends up with
+                -- neither treesitter nor legacy syntax highlighting.
+                if not vim.treesitter.query.get(lang, "highlights") then
+                    return
+                end
+                local ok, err = pcall(vim.treesitter.start, ev.buf)
+                if not ok then
+                    vim.notify(("treesitter %s: %s"):format(lang, err), vim.log.levels.WARN)
+                end
             end,
         })
     end,
