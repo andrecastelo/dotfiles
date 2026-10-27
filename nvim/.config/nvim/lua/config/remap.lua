@@ -30,6 +30,28 @@ local cn_function = function()
     vim.api.nvim_buf_set_lines(0, csrow, cerow + 1, false, lines)
 end
 
+local visual_substitute = function()
+    local lines = vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = vim.fn.mode() })
+    local pattern, replacement = {}, {}
+
+    for i, line in ipairs(lines) do
+        pattern[i] = vim.fn.escape(line, [[\/]])
+        replacement[i] = vim.fn.escape(line, [[\/&~]])
+    end
+
+    local keys = function(k)
+        return vim.api.nvim_replace_termcodes(k, true, false, true)
+    end
+
+    return keys(":<C-u>")
+        .. [[%s/\V]]
+        .. table.concat(pattern, [[\n]])
+        .. "/"
+        .. table.concat(replacement, [[\r]])
+        .. "/gI"
+        .. keys("<Left><Left><Left>")
+end
+
 if not vim.g.vscode then
     local wk = require("which-key")
     wk.add({
@@ -57,11 +79,6 @@ if not vim.g.vscode then
                 require("andrecastelo.utils").format()
             end,
             desc = "format the file",
-        },
-        {
-            "<leader>s",
-            [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-            desc = "search and replace the word under the cursor",
         },
         { "<leader>Y", [["+Y]],         desc = "copy to outside clipboard" },
         { "<leader>h", ":Oil<CR>",      desc = "open oil" },
@@ -91,6 +108,20 @@ if not vim.g.vscode then
         { "<F1>",      "<ESC>",            mode = { "n", "v", "i" } },
         { "jj",        "<ESC>",            mode = { "i" } },
         { "jk",        "<ESC>",            mode = { "i" } },
+        {
+            "<leader>s",
+            [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+            desc = "search and replace the word under the cursor",
+            mode = { "n" }
+        },
+        {
+            "<leader>s",
+            visual_substitute,
+            desc = "search and replace the selection",
+            mode = { "x" },
+            expr = true,
+            replace_keycodes = false,
+        }
     })
 
     vim.api.nvim_create_user_command(
